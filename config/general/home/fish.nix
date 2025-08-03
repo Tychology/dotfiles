@@ -6,6 +6,9 @@
   programs.fish = {
     enable = true;
     generateCompletions = true;
+    interactiveShellInit = ''
+      fastfetch
+    '';
     shellAliases = {
       y = "yy";
       x = "hx";

@@ -1,8 +1,4 @@
-{
-  flakeDir,
-  host,
-  ...
-}: {
+{flakeDir, ...}: {
   imports =
     [
       (import ./default.nix)
