@@ -32,6 +32,7 @@ in {
     unrar
     ffmpeg
     imagemagick
+    img2pdf
 
     lshw
     pkg-config

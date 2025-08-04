@@ -23,8 +23,6 @@
     trusted-users = root jonas
   '';
 
-  nixpkgs.config.allowUnfree = true;
-
   users = {
     mutableUsers = true;
   };
