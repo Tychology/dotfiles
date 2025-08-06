@@ -26,7 +26,7 @@
     system = "x86_64-linux";
     username = "jonas";
     flakeDir = builtins.toString ./.;
-    wallpaper = "cosmiccliffs.jpg";
+    wallpaper = "cosmiccliffs.png";
   in {
     nixosConfigurations = nixpkgs.lib.genAttrs ["think" "desk" "wyse" "wsl"] (
       host: let
