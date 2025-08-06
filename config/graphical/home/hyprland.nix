@@ -134,8 +134,7 @@ in
             }
 
             bind = ,Print,exec,screenshootin
-            bind = ${modifier},Tab,exec,rofi-launcher
-
+            bind = ${modifier},Tab,exec,QT_QPA_PLATFORM=xcb albert toggle
 
             bind = ${modifier},Return,exec,${variables.terminal}
             bind = ${modifier}SHIFT,Return,exec,rofi-launcher
