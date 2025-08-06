@@ -1,5 +1,5 @@
 {lib, ...}: {
-  time.timeZone = lib.mkForce "Europe/Berlin";
+  time.timeZone = lib.mkDefault "Europe/Berlin";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";

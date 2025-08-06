@@ -25,9 +25,17 @@
   wsl = {
     enable = true;
     defaultUser = "jonas";
+<<<<<<< HEAD
   }
   services.smartd.enable = lib.mkForce false;
 <<<<<<< HEAD
+=======
+  };
+  services = {
+    smartd.enable = lib.mkForce false;
+    keyd.enable = lib.mkForce false;
+  };
+>>>>>>> 43e6b03c691e8a77e918c8904032583bd22961e5
   programs = {
     command-not-found.enable = false;
     nix-index = {
@@ -49,7 +57,7 @@
   };
 
   environment.variables = {
-    NH_FLAKE = flakeDir;
+    NH_FLAKE = "~/dotfiles";
   };
 
   # This value determines the NixOS release from which the default
