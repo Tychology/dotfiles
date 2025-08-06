@@ -25,17 +25,11 @@
   wsl = {
     enable = true;
     defaultUser = "jonas";
-<<<<<<< HEAD
-  }
-  services.smartd.enable = lib.mkForce false;
-<<<<<<< HEAD
-=======
   };
   services = {
     smartd.enable = lib.mkForce false;
     keyd.enable = lib.mkForce false;
   };
->>>>>>> 43e6b03c691e8a77e918c8904032583bd22961e5
   programs = {
     command-not-found.enable = false;
     nix-index = {
@@ -45,8 +39,6 @@
       enableZshIntegration = true;
     };
   };
-=======
->>>>>>> a017baeed9977f581ed6e37b90a05de5c8f01221
 
   nix.extraOptions = ''
     trusted-users = root jonas
