@@ -14,6 +14,7 @@
     pihole-flake.url = "github:mindsbackyard/pihole-flake";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
   };
 
   outputs = {
@@ -39,6 +40,7 @@
           modules = [
             inputs.stylix.nixosModules.stylix
             inputs.nix-flatpak.nixosModules.nix-flatpak
+            inputs.nixos-wsl.nixosModules.wsl
             ./hosts/${host}/config.nix
             ({config, ...}: {
               # nixpkgs.overlays = import ./overlays;

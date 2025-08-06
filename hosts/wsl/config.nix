@@ -25,7 +25,7 @@
   wsl = {
     enable = true;
     defaultUser = "jonas";
-  }
+  };
   services.smartd.enable = lib.mkForce false;
   programs = {
     command-not-found.enable = false;

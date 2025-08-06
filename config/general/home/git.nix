@@ -7,6 +7,7 @@ in {
     userEmail = "${variables.gitEmail}";
     extraConfig = {
       init.defaultBranch = "main";
+      credential.helper = "store --file ~/.git_credentials";
     };
   };
 }
