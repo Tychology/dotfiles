@@ -1,4 +1,8 @@
-{flakeDir, ...}: {
+{
+  flakeDir,
+  lib,
+  ...
+}: {
   imports =
     [
       (import ./default.nix)
@@ -17,6 +21,12 @@
 
   # Set your time zone.
   # time.timeZone = lib.mkForce "Europe/Berlin";
+
+  wsl = {
+    enable = true;
+    defaultUser = "jonas";
+  }
+  services.smartd.enable = lib.mkForce false;
 
   nix.extraOptions = ''
     trusted-users = root jonas
