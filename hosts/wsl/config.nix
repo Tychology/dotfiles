@@ -26,7 +26,10 @@
     enable = true;
     defaultUser = "jonas";
   };
-  services.smartd.enable = lib.mkForce false;
+  services = {
+    smartd.enable = lib.mkForce false;
+    keyd.enable = lib.mkForce false;
+  };
   programs = {
     command-not-found.enable = false;
     nix-index = {
@@ -46,7 +49,7 @@
   };
 
   environment.variables = {
-    NH_FLAKE = flakeDir;
+    NH_FLAKE = "~/dotfiles";
   };
 
   # This value determines the NixOS release from which the default
