@@ -1,5 +1,8 @@
 {pkgs, ...}: {
-  services.flatpak.enable = true;
+  services.flatpak = {
+    enable = true;
+    packages = [];
+  };
   systemd.services.flatpak-repo = {
     path = [pkgs.flatpak];
     script = ''

@@ -13,8 +13,8 @@ in {
     gcc
     xh
     dua
+    duf
     direnv
-    devenv
     kmon
     bandwhich
     valgrind
@@ -32,7 +32,6 @@ in {
     unrar
     ffmpeg
     imagemagick
-    img2pdf
 
     lshw
     pkg-config

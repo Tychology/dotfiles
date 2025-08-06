@@ -3,18 +3,17 @@
   inputs = {
     # nixpkgs.url = "github:Tychology/nixpkgs/bash-hotfix";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-25.05";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix/release-25.05";
-    fine-cmdline = {
-      url = "github:VonHeikemen/fine-cmdline.nvim";
-      flake = false;
-    };
     pihole-flake.url = "github:mindsbackyard/pihole-flake";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
   };
 
   outputs = {
@@ -28,7 +27,7 @@
     flakeDir = builtins.toString ./.;
     wallpaper = "cosmiccliffs.jpg";
   in {
-    nixosConfigurations = nixpkgs.lib.genAttrs ["think" "desk" "wyse"] (
+    nixosConfigurations = nixpkgs.lib.genAttrs ["think" "desk" "wyse" "wsl"] (
       host: let
         hostDir = flakeDir + "/hosts/" + host;
       in
@@ -39,13 +38,15 @@
           };
           modules = [
             inputs.stylix.nixosModules.stylix
+            inputs.nix-flatpak.nixosModules.nix-flatpak
             ./hosts/${host}/config.nix
             ({config, ...}: {
+              # nixpkgs.overlays = import ./overlays;
               nixpkgs.config.allowUnfree = true;
               stylix.base16Scheme = builtins.fromJSON ''{"base00":"011d45","base01":"184684","base02":"805aa3","base03":"8fa0b0","base04":"c2b6ba","base05":"ffc5a7","base06":"f3d9c2","base07":"f7cfcd","base08":"b57cb1","base09":"4698d0","base0A":"7995a1","base0B":"8c918d","base0C":"9788c1","base0D":"9f8a9d","base0E":"c57e84","base0F":"dd6b9e"}'';
             })
-            home-manager.nixosModules.home-manager
 
+            home-manager.nixosModules.home-manager
             ({config, ...}: {
               home-manager.extraSpecialArgs = {
                 inherit username inputs host flakeDir hostDir wallpaper;

@@ -27,11 +27,11 @@ in {
     virt-viewer
     appimage-run
     networkmanagerapplet
+    peazip
     yad
     swww
     grim
     slurp
-    file-roller
     swaynotificationcenter
     imv
     mpv
