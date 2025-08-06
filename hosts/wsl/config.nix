@@ -27,6 +27,7 @@
     defaultUser = "jonas";
   }
   services.smartd.enable = lib.mkForce false;
+<<<<<<< HEAD
   programs = {
     command-not-found.enable = false;
     nix-index = {
@@ -36,6 +37,8 @@
       enableZshIntegration = true;
     };
   };
+=======
+>>>>>>> a017baeed9977f581ed6e37b90a05de5c8f01221
 
   nix.extraOptions = ''
     trusted-users = root jonas
