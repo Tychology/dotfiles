@@ -32,6 +32,8 @@
     vscodium-fhs
     kdePackages.kdeconnect-kde
     ladybird
+    vieb
+    nyxt
     thunderbird
 
     jetbrains.idea-ultimate
