@@ -33,7 +33,7 @@
     kdePackages.kdeconnect-kde
     ladybird
     vieb
-    nyxt
+    # nyxt
     thunderbird
 
     jetbrains.idea-ultimate
