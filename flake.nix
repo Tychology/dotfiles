@@ -11,10 +11,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix/release-25.05";
-    pihole-flake.url = "github:mindsbackyard/pihole-flake";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
+
+    flake-utils.url = "github:numtide/flake-utils";
+
+    # Required for making sure that Pi-hole continues running if the executing user has no active session.
+    linger = {
+      url = "github:mindsbackyard/linger-flake";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+
+    pihole = {
+      url = "github:mindsbackyard/pihole-flake";
+      inputs.nixpkgs.follow = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.linger.follows = "linger";
+    };
   };
 
   outputs = {
@@ -41,6 +55,10 @@
             inputs.stylix.nixosModules.stylix
             inputs.nix-flatpak.nixosModules.nix-flatpak
             inputs.nixos-wsl.nixosModules.wsl
+
+            inputs.linger.nixosModules.${system}.default
+            inputs.pihole.nixosModules.${system}.default
+
             ./hosts/${host}/config.nix
             ({config, ...}: {
               # nixpkgs.overlays = import ./overlays;

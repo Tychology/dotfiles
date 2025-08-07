@@ -1,25 +1,44 @@
-{pkgs, ...}: {
-  services.pihole.enable = true;
+{...}: {
+  boot.cleanTmpDir = true;
 
-  services.pihole.hostConfig = {
-    user = "pihole"; # Define the user that will run the container
-    enableLingeringForUser = true;
-    suppressTmpDirWarning = true;
-    persistVolumes = true;
-    volumesPath = "/var/lib/pihole";
+  # the Pi-hole service configuration
+  services.pihole = {
+    enable = true;
+    hostConfig = {
+      # define the service user for running the rootless Pi-hole container
+      user = "pihole";
+      enableLingeringForUser = true;
+      containerName = "pihole";
+      # we want to persist change to the Pi-hole configuration & logs across service restarts
+      # check the option descriptions for more information
+      persistVolumes = true;
 
-    # Expose ports.  Adjust as needed, especially for rootless.
-    ports = [
-      "53:53/tcp"
-      "53:53/udp"
-      "67:67/udp" # Only if you use Pi-hole's DHCP server
-      "8003:8003"
-    ];
+      # expose DNS & the web interface on unpriviledged ports on all IP addresses of the host
+      # check the option descriptions for more information
+      dnsPort = 53;
+      webProt = 8001;
+    };
+    piholeConfig = {
+      ftl = {
+        # assuming that the host has this (fixed) IP and should resolve "pi.hole" to this address
+        # check the option description & the FTLDNS documentation for more information
+        LOCAL_IPV4 = "192.168.178.2";
+      };
+      web = {
+        virtualHost = "pi.hole";
+        password = "password";
+      };
+      dns = {
+        upstreamServers = ["9.9.9.9" "149.112.112.112" "1.1.1.1" "1.0.0.1"];
+      };
+    };
   };
 
-  services.pihole.piholeConfig = {
-    PIHOLE_DNS_ = "1.1.1.1;1.0.0.1"; # Example DNS servers
-    WEBPASSWORD = "12345";
+  # we need to open the ports in the firewall to make the service accessible beyond `localhost`
+  # assuming that Pi-hole is exposed on the host interface `eth0`
+  networking.firewall.interfaces.enp1s0 = {
+    allowedTCPPorts = [53 8001];
+    allowedUDPPorts = [53];
   };
 
   # Create the user to run the container
@@ -29,25 +48,4 @@
   };
 
   users.groups.pihole = {};
-
-  # Firewall configuration
-  networking.firewall.allowedTCPPorts = [53 8003];
-  networking.firewall.allowedUDPPorts = [53 67];
-
-  systemd.user.services.podman-my-pihole = {
-    Unit = {
-      Description = "Pihole Podman container";
-      After = ["network.target"];
-      Requires = ["network.target"];
-    };
-
-    Service = {
-      Restart = "on-failure";
-      ExecStart = "${pkgs.podman}/bin/podman start pihole";
-      ExecStop = "${pkgs.podman}/bin/podman stop pihole";
-    };
-    Install = {
-      WantedBy = ["multi-user.target"];
-    };
-  };
 }
