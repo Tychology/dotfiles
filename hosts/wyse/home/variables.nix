@@ -19,5 +19,5 @@
   # Program Options
   browser = "zen"; # Set Default Browser (google-chrome-stable for google-chrome)
   terminal = "kitty"; # Set Default System Terminal
-shell = "fish";
+  shell = "fish";
 }

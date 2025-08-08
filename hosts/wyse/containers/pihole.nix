@@ -1,5 +1,5 @@
-{...}: {
-  boot.cleanTmpDir = true;
+{username, ...}: {
+  boot.tmp.cleanOnBoot = true;
 
   # the Pi-hole service configuration
   services.pihole = {
@@ -12,13 +12,15 @@
       # we want to persist change to the Pi-hole configuration & logs across service restarts
       # check the option descriptions for more information
       persistVolumes = true;
+      volumesPath = "/home/pihole";
 
       # expose DNS & the web interface on unpriviledged ports on all IP addresses of the host
       # check the option descriptions for more information
-      dnsPort = 53;
-      webProt = 8001;
+      dnsPort = 5335;
+      webPort = 8001;
     };
     piholeConfig = {
+      tz = "Europe/Berlin";
       ftl = {
         # assuming that the host has this (fixed) IP and should resolve "pi.hole" to this address
         # check the option description & the FTLDNS documentation for more information
@@ -37,14 +39,27 @@
   # we need to open the ports in the firewall to make the service accessible beyond `localhost`
   # assuming that Pi-hole is exposed on the host interface `eth0`
   networking.firewall.interfaces.enp1s0 = {
-    allowedTCPPorts = [53 8001];
-    allowedUDPPorts = [53];
+    allowedTCPPorts = [5335 8001];
+    allowedUDPPorts = [5335];
   };
 
   # Create the user to run the container
   users.users.pihole = {
-    isSystemUser = true;
+    isNormalUser = true;
+    createHome = true;
     group = "pihole";
+    subUidRanges = [
+      {
+        startUid = 100001;
+        count = 65534;
+      }
+    ];
+    subGidRanges = [
+      {
+        startGid = 100001;
+        count = 65534;
+      }
+    ];
   };
 
   users.groups.pihole = {};

@@ -2,6 +2,7 @@
   imports =
     [
       (import ./default.nix)
+      (import ./containers)
     ]
     ++ (map (p: (flakeDir + p)) [
       "/config/general/sys"
