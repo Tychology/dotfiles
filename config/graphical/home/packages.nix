@@ -32,7 +32,7 @@
     vscodium-fhs
     kdePackages.kdeconnect-kde
     ladybird
-    vieb
+    # vieb
     # nyxt
     thunderbird
 
