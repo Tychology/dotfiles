@@ -32,6 +32,8 @@ in {
     unrar
     ffmpeg
     imagemagick
+    dnslookup
+    alsa-utils
 
     lshw
     pkg-config
