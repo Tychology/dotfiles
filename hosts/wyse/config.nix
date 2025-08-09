@@ -24,7 +24,8 @@
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-i22b.psf.gz";
   # Set your time zone.
   # time.timeZone = lib.mkForce "Europe/Berlin";
-
+  console.packages = [pkgs.terminus_font];
+  console.font = "${pkgs.terminus_font}/share/consolefonts/ter-i22b.psf.gz";
   nix.extraOptions = ''
     trusted-users = root jonas
   '';
@@ -35,6 +36,11 @@
 
   environment.variables = {
     NH_FLAKE = "~/dotfiles";
+  };
+
+  fileSystems."/tmp" = {
+    device = "tmpfs";
+    fsType = "tmpfs";
   };
 
   # This value determines the NixOS release from which the default

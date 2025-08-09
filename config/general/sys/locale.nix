@@ -1,5 +1,6 @@
 {lib, ...}: {
   time.timeZone = lib.mkDefault "Europe/Berlin";
+  console.keyMap = "de";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";

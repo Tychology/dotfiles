@@ -1,4 +1,6 @@
-{username, ...}: {
+{username, ...}: let
+  ip = "192.168.178.11";
+in {
   boot.tmp.cleanOnBoot = true;
 
   # the Pi-hole service configuration
@@ -16,15 +18,17 @@
 
       # expose DNS & the web interface on unpriviledged ports on all IP addresses of the host
       # check the option descriptions for more information
-      dnsPort = 5335;
+      dnsPort = 5353;
       webPort = 8001;
     };
     piholeConfig = {
       tz = "Europe/Berlin";
+      interface = "enp1s0";
       ftl = {
         # assuming that the host has this (fixed) IP and should resolve "pi.hole" to this address
         # check the option description & the FTLDNS documentation for more information
-        LOCAL_IPV4 = "192.168.178.2";
+        FTLCONF_DELAY_STARTUP = "5";
+        LOCAL_IPV4 = "192.168.178.10";
       };
       web = {
         virtualHost = "pi.hole";
@@ -36,11 +40,30 @@
     };
   };
 
-  # we need to open the ports in the firewall to make the service accessible beyond `localhost`
-  # assuming that Pi-hole is exposed on the host interface `eth0`
-  networking.firewall.interfaces.enp1s0 = {
-    allowedTCPPorts = [5335 8001];
-    allowedUDPPorts = [5335];
+  networking = {
+    # interfaces.enp1s0.ipv4.addresses = [
+    #   {
+    #     address = ip;
+    #     prefixLength = 24;
+    #   }
+    # ];
+
+    firewall = {
+      allowedTCPPorts = [53 8001];
+      allowedUDPPorts = [53];
+    };
+    nat.forwardPorts = [
+      {
+        sourcePort = 53;
+        proto = "tcp";
+        destination = "127.0.0.1:5353";
+      }
+      {
+        sourcePort = 53;
+        proto = "udp";
+        destination = "127.0.0.1:5353";
+      }
+    ];
   };
 
   # Create the user to run the container
