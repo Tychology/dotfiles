@@ -371,14 +371,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1754643066,
-        "narHash": "sha256-4Dzi4+Cfdsgj3ZAb+g1X1tGYrImxByYZdCPbzh84yvI=",
-        "path": "/home/jonas/repos/pihole-flake",
-        "type": "path"
+        "lastModified": 1754772845,
+        "narHash": "sha256-O7D3I+f3NdT3klvSfqG4WRsxBC7L5aoTW2jWKLp1+Fc=",
+        "owner": "Tychology",
+        "repo": "pihole-flake",
+        "rev": "1a2ef95dcf776016166ee68d9eb71c39fc86eb83",
+        "type": "github"
       },
       "original": {
-        "path": "/home/jonas/repos/pihole-flake",
-        "type": "path"
+        "owner": "Tychology",
+        "repo": "pihole-flake",
+        "type": "github"
       }
     },
     "root": {

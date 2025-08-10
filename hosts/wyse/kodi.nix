@@ -3,11 +3,10 @@
   lib,
   ...
 }: {
-  environment.systemPackages = [pkgs.kodi-wayland pkgs.cage];
+  environment.systemPackages = [pkgs.kodi-wayland pkgs.cage pkgs.sof-firmware];
   # Define the user to run Kodi
   users.extraUsers.kodi = {
     isNormalUser = true;
-    uid = uid;
     # Add to necessary groups for video/audio access
     extraGroups = ["video" "audio"];
     password = ""; # optional: set something or lock password

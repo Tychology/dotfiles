@@ -24,6 +24,10 @@
   # time.timeZone = lib.mkForce "Europe/Berlin";
   console.packages = [pkgs.terminus_font];
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-i22b.psf.gz";
+
+  security.rtkit.enable = true;
+  hardware.enableAllFirmware = true;
+
   nix.extraOptions = ''
     trusted-users = root jonas
   '';

@@ -25,7 +25,7 @@
 
     pihole = {
       # url = "github:mindsbackyard/pihole-flake";
-      url = "/home/jonas/repos/pihole-flake";
+      url = "github:Tychology/pihole-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.linger.follows = "linger";
