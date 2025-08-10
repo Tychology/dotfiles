@@ -6,7 +6,6 @@
   home.packages = with pkgs; [
     inputs.zen-browser.packages."${system}".default
     wl-mirror
-    bottles
     kdePackages.okular
     bitwarden
     github-desktop
@@ -25,14 +24,12 @@
     inkscape
     ausweisapp
     zoom-us
-    lutris
     cutter
-    prismlauncher
     gource
     vscodium-fhs
     kdePackages.kdeconnect-kde
     ladybird
-    vieb
+    # vieb
     # nyxt
     thunderbird
 

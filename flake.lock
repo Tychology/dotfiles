@@ -286,11 +286,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1754563854,
-        "narHash": "sha256-YzNTExe3kMY9lYs23mZR7jsVHe5TWnpwNrsPOpFs/b8=",
+        "lastModified": 1754689972,
+        "narHash": "sha256-eogqv6FqZXHgqrbZzHnq43GalnRbLTkbBbFtEfm1RSc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e728d7ae4bb6394bbd19eec52b7358526a44c414",
+        "rev": "fc756aa6f5d3e2e5666efcf865d190701fef150a",
         "type": "github"
       },
       "original": {
@@ -371,11 +371,19 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1754772845,
         "narHash": "sha256-O7D3I+f3NdT3klvSfqG4WRsxBC7L5aoTW2jWKLp1+Fc=",
         "owner": "Tychology",
         "repo": "pihole-flake",
         "rev": "1a2ef95dcf776016166ee68d9eb71c39fc86eb83",
+=======
+        "lastModified": 1670284048,
+        "narHash": "sha256-lNyJ7vrDAdsPVcNBXqDUXseBBL9Kf2q64/A8ntEKXWI=",
+        "owner": "Tychology",
+        "repo": "pihole-flake",
+        "rev": "9daaf65415ad6d3f5a8daa617d8737bc405f9dd8",
+>>>>>>> main
         "type": "github"
       },
       "original": {
@@ -569,11 +577,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1754624672,
-        "narHash": "sha256-ouUU+UZJpSQZ4jCvbF5JVq+4FLqy7O1W+ineXguTPMA=",
+        "lastModified": 1754739276,
+        "narHash": "sha256-HQotJt480NsHIEgkt2ZiuvjGa50sc7cRhhsZXqZIWpU=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "ab485da9e2a1ae4f8b55b59f88e3c13e74dcb464",
+        "rev": "b5b7136bb6ed82504c3613a7e0cbe6f69b72e7f1",
         "type": "github"
       },
       "original": {

@@ -62,7 +62,7 @@
 
             ./hosts/${host}/config.nix
             ({config, ...}: {
-              # nixpkgs.overlays = import ./overlays;
+              nixpkgs.overlays = import ./overlays;
               nixpkgs.config.allowUnfree = true;
               stylix.base16Scheme = builtins.fromJSON ''{"base00":"011d45","base01":"184684","base02":"805aa3","base03":"8fa0b0","base04":"c2b6ba","base05":"ffc5a7","base06":"f3d9c2","base07":"f7cfcd","base08":"b57cb1","base09":"4698d0","base0A":"7995a1","base0B":"8c918d","base0C":"9788c1","base0D":"9f8a9d","base0E":"c57e84","base0F":"dd6b9e"}'';
             })
