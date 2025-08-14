@@ -30,6 +30,21 @@
       inputs.flake-utils.follows = "flake-utils";
       inputs.linger.follows = "linger";
     };
+    sopswarden = {
+      url = "github:pfassina/sopswarden";
+      inputs.sopswarden.url = "github:pfassina/sopswarden";
+    };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.darwin.follows = "";
+    };
+
+    peerix = {
+      url = "github:Tychology/peerix";
+      # url = "/home/jonas/repos/peerix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -42,15 +57,16 @@
     username = "jonas";
     flakeDir = builtins.toString ./.;
     wallpaper = "cosmiccliffs.png";
+    hosts = ["think" "desk" "wyse" "wsl"];
   in {
-    nixosConfigurations = nixpkgs.lib.genAttrs ["think" "desk" "wyse" "wsl"] (
+    nixosConfigurations = nixpkgs.lib.genAttrs hosts (
       host: let
         hostDir = flakeDir + "/hosts/" + host;
       in
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit system inputs username host flakeDir hostDir wallpaper;
+            inherit system inputs username host flakeDir hostDir wallpaper hosts;
           };
           modules = [
             inputs.stylix.nixosModules.stylix
@@ -59,6 +75,8 @@
 
             inputs.linger.nixosModules.${system}.default
             inputs.pihole.nixosModules.${system}.default
+            inputs.agenix.nixosModules.default
+            inputs.peerix.nixosModules.peerix
 
             ./hosts/${host}/config.nix
             ({config, ...}: {

@@ -13,7 +13,10 @@
   };
   services.getty.autologinUser = "kodi";
 
-  environment.shellAliases.k = "cage kodi-standalone";
+  environment.shellAliases = {
+    k = "cage kodi-standalone";
+    p = "wpctl set-profile 48 4";
+  };
 
   # services.cage = {
   #   enable = true;

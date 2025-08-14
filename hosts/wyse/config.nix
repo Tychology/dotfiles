@@ -20,8 +20,6 @@
   vm.guest-services.enable = false;
   local.hardware-clock.enable = false;
 
-  console.packages = [pkgs.terminus_font];
-  console.font = "${pkgs.terminus_font}/share/consolefonts/ter-i22b.psf.gz";
   # Set your time zone.
   # time.timeZone = lib.mkForce "Europe/Berlin";
   console.packages = [pkgs.terminus_font];
