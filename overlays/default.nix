@@ -1,14 +1,14 @@
 [
-  (self: super: {
-    krb5 = super.krb5.overrideAttrs (oldAttrs: {
-      src = ./krb5-1.21.3.tar.gz;
-    });
-  })
-  (self: super: {
-    libidn2 = super.libidn2.overrideAttrs (oldAttrs: {
-      src = ./libidn2-2.3.8.tar.gz;
-    });
-  })
+  #  (self: super: {
+  #    krb5 = super.krb5.overrideAttrs (oldAttrs: {
+  #      src = ./krb5-1.21.3.tar.gz;
+  #    });
+  #  })
+  #  (self: super: {
+  #    libidn2 = super.libidn2.overrideAttrs (oldAttrs: {
+  #      src = ./libidn2-2.3.8.tar.gz;
+  #    });
+  #  })
   # (self: super: {
   #   ddcutil = super.ddcutil.overrideAttrs (oldAttrs: {
   #     src = super.fetchurl {
