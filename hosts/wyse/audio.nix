@@ -15,7 +15,7 @@
             {
               matches = [
                 {
-                  "device.name" = "alsa_card.pci-0000_00_0e.0";
+                  "device.name" = "alsa_card.*";
                 }
               ];
               actions = {
