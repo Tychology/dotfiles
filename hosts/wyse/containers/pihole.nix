@@ -19,7 +19,7 @@ in {
       # expose DNS & the web interface on unpriviledged ports on all IP addresses of the host
       # check the option descriptions for more information
       dnsPort = 5353;
-      webPort = 8001;
+      webPort = 8080;
     };
     piholeConfig = {
       tz = "Europe/Berlin";
@@ -41,29 +41,31 @@ in {
   };
 
   networking = {
-    # interfaces.enp1s0.ipv4.addresses = [
-    #   {
-    #     address = ip;
-    #     prefixLength = 24;
-    #   }
-    # ];
-
-    firewall = {
-      allowedTCPPorts = [53 8001];
-      allowedUDPPorts = [53];
-    };
-    nat.forwardPorts = [
+    interfaces.enp1s0.ipv4.addresses = [
       {
-        sourcePort = 53;
-        proto = "tcp";
-        destination = "127.0.0.1:5353";
-      }
-      {
-        sourcePort = 53;
-        proto = "udp";
-        destination = "127.0.0.1:5353";
+        address = ip;
+        prefixLength = 24;
       }
     ];
+
+    firewall = {
+      allowedTCPPorts = [53 80];
+      allowedUDPPorts = [53];
+    };
+
+    nftables.tables.pihole = {
+      enable = true;
+      name = "pihole";
+      family = "ip";
+      content = ''
+        chain PREROUTING {
+          type nat hook prerouting priority dstnat; policy accept;
+          ip daddr ${ip} tcp dport 80 dnat to ${ip}:8080
+          ip daddr ${ip} tcp dport 53 dnat to ${ip}:5353
+          ip daddr ${ip} udp dport 53 dnat to ${ip}:5353
+        }
+      '';
+    };
   };
 
   # Create the user to run the container
