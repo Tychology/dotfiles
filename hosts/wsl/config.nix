@@ -49,7 +49,7 @@
   };
 
   environment.variables = {
-    NH_FLAKE = "~/dotfiles";
+    # NH_FLAKE = "~/dotfiles";
   };
 
   # This value determines the NixOS release from which the default

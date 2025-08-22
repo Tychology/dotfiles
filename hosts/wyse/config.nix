@@ -37,7 +37,7 @@
   };
 
   environment.variables = {
-    NH_FLAKE = "~/dotfiles";
+    # NH_FLAKE = "~/dotfiles";
   };
 
   fileSystems."/tmp" = {
