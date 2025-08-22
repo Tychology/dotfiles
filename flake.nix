@@ -44,7 +44,7 @@
     };
     sopswarden = {
       url = "github:pfassina/sopswarden";
-      inputs.sopswarden.url = "github:pfassina/sopswarden";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix = {
       url = "github:ryantm/agenix";

@@ -10,12 +10,12 @@
     wireplumber = {
       enable = true;
       extraConfig = {
-        "monitor.alsa.rules" = {
-          rules = [
+        "alsa-profile" = {
+          "monitor.alsa.rules" = [
             {
               matches = [
                 {
-                  "device.name" = "alsa_card.*";
+                  "device.name" = "~alsa_card.*";
                 }
               ];
               actions = {
