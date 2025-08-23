@@ -38,6 +38,7 @@
 
   environment.variables = {
     # NH_FLAKE = "~/dotfiles";
+    TERM = "xterm";
   };
 
   fileSystems."/tmp" = {

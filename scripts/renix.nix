@@ -24,7 +24,7 @@ pkgs.writeScriptBin "renix" ''
       exit 0
   fi
 
-  git add *
+  git add .
 
   alejandra . &>/dev/null \
     || ( alejandra . ; echo "formatting failed!" && exit 1)

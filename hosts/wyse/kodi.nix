@@ -17,10 +17,4 @@
     k = "cage kodi-standalone";
     p = "wpctl set-profile 48 4";
   };
-
-  # services.cage = {
-  #   enable = true;
-  #   user = "kodi";
-  #   program = "${pkgs.kodi-wayland}/bin/kodi-standalone";
-  # };
 }
