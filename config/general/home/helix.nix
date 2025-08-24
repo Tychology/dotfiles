@@ -50,6 +50,14 @@
             ":open %sh{cat /tmp/unique-file}"
             ":redraw"
           ];
+          "C-g" = [
+            ":write-all"
+            ":new"
+            ":insert-output gitui >/dev/tty"
+            ":buffer-close!"
+            ":redraw"
+            ":reload-all"
+          ];
         };
       };
     };
