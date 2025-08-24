@@ -1,5 +1,9 @@
 {username, ...}: let
   ip = "192.168.178.11";
+  dnsPort = 5311;
+  dnsPortStr = toString dnsPort;
+  webPort = 8011;
+  webPortStr = toString webPort;
 in {
   boot.tmp.cleanOnBoot = true;
 
@@ -18,8 +22,8 @@ in {
 
       # expose DNS & the web interface on unpriviledged ports on all IP addresses of the host
       # check the option descriptions for more information
-      dnsPort = 5353;
-      webPort = 8080;
+      dnsPort = dnsPort;
+      webPort = webPort;
     };
     piholeConfig = {
       tz = "Europe/Berlin";
@@ -28,7 +32,7 @@ in {
         # assuming that the host has this (fixed) IP and should resolve "pi.hole" to this address
         # check the option description & the FTLDNS documentation for more information
         FTLCONF_DELAY_STARTUP = "5";
-        LOCAL_IPV4 = "192.168.178.10";
+        LOCAL_IPV4 = ip;
       };
       web = {
         virtualHost = "pi.hole";
@@ -49,8 +53,8 @@ in {
     ];
 
     firewall = {
-      allowedTCPPorts = [53 5353 80 8080];
-      allowedUDPPorts = [53 5353];
+      allowedTCPPorts = [53 dnsPort 80 webPort];
+      allowedUDPPorts = [53 dnsPort];
     };
 
     nftables.tables.pihole = {
@@ -60,15 +64,15 @@ in {
       content = ''
         chain PREROUTING {
           type nat hook prerouting priority dstnat; policy accept;
-          ip daddr ${ip} tcp dport 80 counter dnat to ${ip}:8080
-          ip daddr ${ip} tcp dport 53 counter dnat to ${ip}:5353
-          ip daddr ${ip} udp dport 53 counter dnat to ${ip}:5353
+          ip daddr ${ip} tcp dport 80 counter dnat to ${ip}:${webPortStr}
+          ip daddr ${ip} tcp dport 53 counter dnat to ${ip}:${dnsPortStr}
+          ip daddr ${ip} udp dport 53 counter dnat to ${ip}:${dnsPortStr}
         }
         chain OUTPUT {
           type nat hook output priority mangle; policy accept;
-          ip daddr ${ip} tcp dport 80 counter dnat to ${ip}:8080
-          ip daddr ${ip} tcp dport 53 counter dnat to ${ip}:5353
-          ip daddr ${ip} udp dport 53 counter dnat to ${ip}:5353
+          ip daddr ${ip} tcp dport 80 counter dnat to ${ip}:${webPortStr}
+          ip daddr ${ip} tcp dport 53 counter dnat to ${ip}:${dnsPortStr}
+          ip daddr ${ip} udp dport 53 counter dnat to ${ip}:${dnsPortStr}
         }
         chain postrouting {
           type nat hook postrouting priority srcnat; policy accept;
