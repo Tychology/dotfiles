@@ -1,8 +1,9 @@
 {...}: {
+  programs.command-not-found.enable = false;
   programs.nix-index = {
     enable = true;
     enableFishIntegration = true;
-    enableBashntegration = true;
+    enableBashIntegration = true;
     enableZshIntegration = true;
   };
 }

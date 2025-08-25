@@ -43,7 +43,7 @@
       inputs.linger.follows = "linger";
     };
     sopswarden = {
-      url = "github:pfassina/sopswarden";
+      url = "github:pfassina/sopswarden/unstable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix = {
@@ -87,6 +87,7 @@
 
             inputs.linger.nixosModules.${system}.default
             inputs.pihole.nixosModules.${system}.default
+            inputs.sopswarden.nixosModules.default
             inputs.agenix.nixosModules.default
             inputs.peerix.nixosModules.peerix
 
