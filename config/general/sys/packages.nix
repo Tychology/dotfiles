@@ -3,6 +3,7 @@ in {
   environment.systemPackages = with pkgs; [
     man-pages
     uutils-coreutils-noprefix
+    helix
     fd
     ripgrep
     fzf
