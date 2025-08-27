@@ -7,9 +7,9 @@
   x = "hx";
   cd = "z";
   g = "gitui";
-  gl = "git pull";
-  gs = "git push";
-  ga = "git add *";
+  gf = "git pull";
+  gp = "git push";
+  ga = "git add .";
 
   sv = "sudo nvim";
   fr = "nh os switch --hostname ${host} /home/${username}/zaneyos";
