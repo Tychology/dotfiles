@@ -27,6 +27,16 @@
   #   });
   # })
   # (self: super: {
+  #   amf-headers = super.amf-headers.overrideAttrs (oldAttrs: {
+  #     src = super.fetchFromGitHub {
+  #       owner = "GPUOpen-LibrariesAndSDKs";
+  #       repo = "AMF";
+  #       tag = "v1.4.36";
+  #       sha256 = "sha256-0PgWEq+329/EhI0/CgPsCkJ4CiTsFe56w2O+AcjVUdc=";
+  #     };
+  #   });
+  # })
+  # (self: super: {
   #   libcap_ng = super.libcap_ng.overrideAttrs (oldAttrs: {
   #     version = "0.8.5";
   #     src = super.fetchFromGitHub {

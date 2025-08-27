@@ -7,18 +7,18 @@
       "/config/general/sys"
       "/config/graphical/sys"
       "/modules/intel-drivers.nix"
-      "/modules/vm-guest-services.nix"
+      # "/modules/vm-guest-services.nix"
       "/modules/local-hardware-clock.nix"
     ]);
 
   # Extra Module Options
   drivers.intel.enable = false;
-  vm.guest-services.enable = false;
+  # vm.guest-services.enable = false;
   local.hardware-clock.enable = false;
 
   # Set your time zone.
   # time.timeZone = lib.mkForce "Europe/Berlin";
-
+  #
   nix.extraOptions = ''
     trusted-users = root jonas
   '';
