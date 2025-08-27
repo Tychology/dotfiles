@@ -17,15 +17,25 @@
   #     };
   #   });
   # })
-  (self: super: {
-    checkbashisms = super.checkbashisms.overrideAttrs (oldAttrs: {
-      version = "2.25.15";
-      src = super.fetchurl {
-        url = "mirror://debian/pool/main/d/devscripts/devscripts_2.25.15.tar.xz";
-        hash = "sha256-TADjFjihtSePKG1NyTvEIAA9pT+JHV3Rmd4VxInM0Kw==";
-      };
-    });
-  })
+  # (self: super: {
+  #   checkbashisms = super.checkbashisms.overrideAttrs (oldAttrs: {
+  #     version = "2.25.15";
+  #     src = super.fetchurl {
+  #       url = "mirror://debian/pool/main/d/devscripts/devscripts_2.25.15.tar.xz";
+  #       hash = "sha256-TADjFjihtSePKG1NyTvEIAA9pT+JHV3Rmd4VxInM0Kw==";
+  #     };
+  #   });
+  # })
+  # (self: super: {
+  #   amf-headers = super.amf-headers.overrideAttrs (oldAttrs: {
+  #     src = super.fetchFromGitHub {
+  #       owner = "GPUOpen-LibrariesAndSDKs";
+  #       repo = "AMF";
+  #       tag = "v1.4.36";
+  #       sha256 = "sha256-0PgWEq+329/EhI0/CgPsCkJ4CiTsFe56w2O+AcjVUdc=";
+  #     };
+  #   });
+  # })
   # (self: super: {
   #   libcap_ng = super.libcap_ng.overrideAttrs (oldAttrs: {
   #     version = "0.8.5";
