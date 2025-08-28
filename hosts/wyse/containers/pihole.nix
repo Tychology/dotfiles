@@ -1,4 +1,8 @@
-{username, ...}: let
+{
+  username,
+  config,
+  ...
+}: let
   ip = "192.168.178.11";
   dnsPort = 5311;
   dnsPortStr = toString dnsPort;
@@ -36,7 +40,9 @@ in {
       };
       web = {
         virtualHost = "pi.hole";
-        password = "password";
+        # password = config.sops.secrets.pihole.path;
+        # password = "password";
+        passwordFile = "/home/pihole/password";
       };
       dns = {
         upstreamServers = ["9.9.9.9" "149.112.112.112" "1.1.1.1" "1.0.0.1"];
