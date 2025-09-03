@@ -17,12 +17,19 @@
     password = ""; # optional: set something or lock password
   };
   services.getty.autologinUser = "kodi";
-
   networking.firewall.allowedTCPPorts = [
-    50152
+    8010 # kodi http control
+    50152 # for youtube addon api
+  ];
+  #for TubeCast
+  networking.interfaces.enp1s0.ipv4.routes = [
+    {
+      address = "239.255.255.250";
+      prefixLength = 32;
+    }
   ];
   environment.shellAliases = {
-    k = "cage kodi-standalone";
-    p = "wpctl set-profile 48 4";
+    k = "XKB_DEFAULT_LAYOUT='de' cage kodi-standalone";
   };
+  # environment.sessionVariables.XKB_DEFAULT_LAYOUT = "de";
 }
