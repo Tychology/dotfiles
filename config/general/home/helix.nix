@@ -38,7 +38,9 @@
           #y = {y = ["extend_to_line_bounds" "yank" "normal_mode" "collapse_selection"];};
           #d = {d = ["extend_to_line_bounds" "yank" "delete_selection"];};
           #c = {c = ["extend_to_line_bounds" "yank" "delete_selection" "insert_mode"];};
-          Z = {Z = ":wq";};
+          # Z = {Z = ":wq";};
+          q = ":q";
+          "C-q" = "replay_macro";
           "," = ["goto_line_end" ":append-output echo -n ';'"];
           esc = ["collapse_selection" "keep_primary_selection" ":w"];
           "A-+" = [":append-output echo -n '|>'"];
