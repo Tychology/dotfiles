@@ -2,6 +2,7 @@
   virtualisation = {
     libvirtd.enable = true;
     containers.enable = true;
+    oci-containers.backend = "podman";
     podman = {
       enable = true;
       dockerCompat = true;

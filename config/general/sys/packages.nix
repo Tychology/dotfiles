@@ -11,6 +11,7 @@ in {
     bat
     nushell
     fish
+    yazi
     gcc
     xh
     dua
