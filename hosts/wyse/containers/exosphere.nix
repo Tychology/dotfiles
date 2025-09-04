@@ -40,7 +40,7 @@ in {
           itzg/minecraft-server
       '';
       ExecStop = "${pkgs.podman}/bin/podman stop ${name}";
-      Restart = "always";
+      Restart = "no";
       # RuntimeDirectory = runtimeDir;
     };
     wantedBy = ["multi-user.target"];
@@ -74,4 +74,6 @@ in {
   };
 
   users.groups."${user}" = {};
+
+  environment.sessionVariables."${name}" = "sudo -u ${user} systemctl --user restart podman-${name}";
 }
