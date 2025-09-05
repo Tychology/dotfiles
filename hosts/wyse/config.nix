@@ -36,8 +36,7 @@
     mutableUsers = true;
   };
 
-  environment.variables = {
-    # NH_FLAKE = "~/dotfiles";
+  environment.sessionVariables = {
     TERM = "xterm";
   };
 
