@@ -35,20 +35,13 @@ in {
     ffmpeg
     imagemagick
     dnslookup
+    openfortivpn
     alsa-utils
+    nmap
 
     lshw
     pkg-config
     libvirt
     mtr
-
-    alejandra
-    nixd
-    nil
-    clang-tools
-    marksman
-    lua-language-server
-    jdt-language-server
-    openfortivpn
   ];
 }

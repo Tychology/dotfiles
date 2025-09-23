@@ -32,6 +32,7 @@
     # vieb
     # nyxt
     thunderbird
+    wireshark
 
     jetbrains.idea-ultimate
     jetbrains.rust-rover
