@@ -5,6 +5,7 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-25.05";
     };
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -63,6 +64,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     ...
   } @ inputs: let
@@ -71,6 +73,12 @@
     flakeDir = builtins.toString ./.;
     wallpaper = "cosmiccliffs.png";
     hosts = ["think" "desk" "wyse" "wsl"];
+    pkgs-unstable = import nixpkgs-unstable {
+      system = system;
+      config = {
+        allowUnfree = true;
+      };
+    };
   in {
     nixosConfigurations = nixpkgs.lib.genAttrs hosts (
       host: let
@@ -79,7 +87,7 @@
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit system inputs username host flakeDir hostDir wallpaper hosts;
+            inherit system inputs username host flakeDir hostDir wallpaper hosts pkgs-unstable;
           };
           modules = [
             inputs.stylix.nixosModules.stylix
@@ -115,7 +123,7 @@
             home-manager.nixosModules.home-manager
             ({config, ...}: {
               home-manager.extraSpecialArgs = {
-                inherit username inputs host flakeDir hostDir wallpaper;
+                inherit username inputs host flakeDir hostDir wallpaper pkgs-unstable;
                 variables = import ./hosts/${host}/home/variables.nix;
                 stylixBase16 = config.stylix.base16Scheme;
               };
