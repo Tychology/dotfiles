@@ -33,6 +33,8 @@
     # nyxt
     thunderbird
     wireshark
+    freecad-wayland
+    teams-for-linux
 
     jetbrains.idea-ultimate
     jetbrains.rust-rover
