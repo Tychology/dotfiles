@@ -125,6 +125,15 @@
           unit = "\t";
         };
       }
+      {
+        name = "json";
+        auto-format = true;
+        formatter = {command = "jsonfmt";};
+        indent = {
+          tab-width = 4;
+          unit = "\t";
+        };
+      }
     ];
     themes = {
       catppuccin_mocha_transparent = {
