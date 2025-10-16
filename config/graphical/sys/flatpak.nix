@@ -2,7 +2,7 @@
   services.flatpak = {
     enable = true;
     packages = [
-      "com.valvesoftware.Steam"
+      # "com.valvesoftware.Steam"
       "com.usebottles.bottles"
       "net.lutris.Lutris"
       "dev.vieb.Vieb"
