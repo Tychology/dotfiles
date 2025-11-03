@@ -17,6 +17,7 @@
         collection-fontsrecommended
         algorithms
         latexmk
+        latexindent
         ; # essential font metrics
     })
     (
