@@ -87,6 +87,17 @@
         };
       };
       nil = {command = "nil";};
+
+      texlab.config.texlab = {
+        build = {
+          onSafe = true;
+          forwardSearchAfter = true;
+        };
+        forwardSearch = {
+          executable = "okular";
+          args = ["--unique" "file:%p#src:%l%f"];
+        };
+      };
     };
     languages.language = [
       {
