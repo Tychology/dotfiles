@@ -5,7 +5,7 @@
     (pkgs.texlive.combine {
       inherit
         (pkgs.texlive)
-        scheme-basic
+        scheme-medium
         xcolor
         framed
         fancyvrb
@@ -18,6 +18,9 @@
         algorithms
         latexmk
         latexindent
+        beamer
+        lipsum
+        tcolorbox
         ; # essential font metrics
     })
     (
