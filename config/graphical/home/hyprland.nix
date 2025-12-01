@@ -88,8 +88,7 @@ in
             windowrulev2 = opacity 0.9 0.7, class:^(Brave)$
             windowrulev2 = opacity 0.9 0.7, class:^(thunar)$
             gestures {
-              workspace_swipe = true
-              workspace_swipe_fingers = 3
+              gesture = 3, horizontal, workspace
             }
             misc {
               initial_workspace_tracking = 0

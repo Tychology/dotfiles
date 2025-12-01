@@ -1,15 +1,15 @@
 [
-  (self: super: {
-    albert = super.albert.overrideAttrs (oldAttrs: {
-      src = super.fetchFromGitHub {
-        owner = "Tychology";
-        repo = "albert";
-        tag = "v0.27.8";
-        hash = "sha256-o/iJQ1fsw+Nl0+6KSiH7R0BxRrqMlRMKwABOxSBRlE0=";
-        fetchSubmodules = true;
-      };
-    });
-  })
+  # (self: super: {
+  #   albert = super.albert.overrideAttrs (oldAttrs: {
+  #     src = super.fetchFromGitHub {
+  #       owner = "Tychology";
+  #       repo = "albert";
+  #       tag = "v0.27.8";
+  #       hash = "sha256-o/iJQ1fsw+Nl0+6KSiH7R0BxRrqMlRMKwABOxSBRlE0=";
+  #       fetchSubmodules = true;
+  #     };
+  #   });
+  # })
 
   #  (self: super: {
   #    krb5 = super.krb5.overrideAttrs (oldAttrs: {

@@ -3,9 +3,9 @@
 in {
   programs.git = {
     enable = true;
-    userName = "${variables.gitUsername}";
-    userEmail = "${variables.gitEmail}";
-    extraConfig = {
+    settings = {
+      user.name = "${variables.gitUsername}";
+      user.mail = "${variables.gitEmail}";
       init.defaultBranch = "main";
       credential.helper = "store --file ~/.git_credentials";
     };

@@ -7,7 +7,7 @@
     inputs.zen-browser.packages."${system}".default
     wl-mirror
     kdePackages.okular
-    bitwarden
+    bitwarden-desktop
     github-desktop
     obsidian
     xournalpp
@@ -18,7 +18,7 @@
     qdirstat
     qbittorrent-enhanced
     vial
-    onlyoffice-bin_latest
+    onlyoffice-desktopeditors
     libreoffice
     arduino-ide
     inkscape
