@@ -22,6 +22,7 @@
     libreoffice
     arduino-ide
     inkscape
+    krita
     ausweisapp
     zoom-us
     cutter
@@ -39,7 +40,7 @@
     android-tools
     heimdall
 
-    jetbrains.idea-ultimate
+    # jetbrains.idea-ultimate
     jetbrains.rust-rover
     jetbrains.pycharm-professional
     jetbrains-toolbox

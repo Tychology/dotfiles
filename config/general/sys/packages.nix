@@ -39,6 +39,8 @@ in {
     alsa-utils
     nmap
 
+    python3
+     
     lshw
     pkg-config
     libvirt

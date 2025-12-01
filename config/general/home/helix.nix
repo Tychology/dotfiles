@@ -47,6 +47,7 @@
           q = ":q";
           "C-q" = "replay_macro";
           "," = ["goto_line_end" ":append-output echo -n ';'"];
+          ";" = ["goto_line_end" ":append-output echo -n ','"];
           # esc = ["collapse_selection" "keep_primary_selection" ":w"];
           "A-+" = [":append-output echo -n '|>'"];
           "A-minus" = [":append-output echo -n '->'"];
