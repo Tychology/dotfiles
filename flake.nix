@@ -3,15 +3,15 @@
     # nixpkgs.url = "github:Tychology/nixpkgs/bash-hotfix";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-25.05";
+      url = "github:nixos/nixpkgs/nixos-25.11";
     };
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
-      url = "github:danth/stylix/release-25.05";
+      url = "github:nix-community/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser = {
@@ -25,7 +25,6 @@
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
@@ -113,8 +112,8 @@
                   "nix-command"
                   "flakes"
                 ];
-                substituters = ["https://cache.nixos.org/"];
-                trusted-public-keys = ["cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="];
+                substituters = ["https://cache.nixos.org/" "https://devenv.cachix.org"];
+                trusted-public-keys = ["cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" "devenv.cachix.org-1:psrHoP9TvUKh6bV3+T5SVjHlT/RHb+NxlIye3E7itnk="];
               };
 
               stylix.base16Scheme = builtins.fromJSON ''{"base00":"011d45","base01":"184684","base02":"805aa3","base03":"8fa0b0","base04":"c2b6ba","base05":"ffc5a7","base06":"f3d9c2","base07":"f7cfcd","base08":"b57cb1","base09":"4698d0","base0A":"7995a1","base0B":"8c918d","base0C":"9788c1","base0D":"9f8a9d","base0E":"c57e84","base0F":"dd6b9e"}'';

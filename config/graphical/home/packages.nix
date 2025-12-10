@@ -7,21 +7,24 @@
     inputs.zen-browser.packages."${system}".default
     wl-mirror
     kdePackages.okular
-    bitwarden
+    bitwarden-desktop
     github-desktop
     obsidian
     xournalpp
     vesktop
-    discord-canary
+    # discord-canary
     musescore
     obs-studio
     qdirstat
     qbittorrent-enhanced
     vial
-    onlyoffice-bin_latest
+    onlyoffice-desktopeditors
     libreoffice
     arduino-ide
     inkscape
+    krita
+    blender
+    godot
     ausweisapp
     zoom-us
     cutter
@@ -33,18 +36,15 @@
     # nyxt
     thunderbird
     wireshark
+    freecad-wayland
+    teams-for-linux
+    zotero
+    android-tools
+    heimdall
 
-    jetbrains.idea-ultimate
-    jetbrains.rust-rover
-    jetbrains.pycharm-professional
-    jetbrains-toolbox
-
-    (pkgs.texlive.combine {
-      inherit (pkgs.texlive) scheme-basic; # or another scheme as needed
-      inherit (pkgs.texlive) xcolor; # explicitly include xcolor
-      inherit (pkgs.texlive) framed;
-      inherit (pkgs.texlive) fancyvrb;
-      inherit (pkgs.texlive) etoolbox;
-    })
+    # jetbrains.idea-ultimate
+    # jetbrains.rust-rover
+    # jetbrains.pycharm-professional
+    # jetbrains-toolbox
   ];
 }

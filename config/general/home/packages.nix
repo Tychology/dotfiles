@@ -9,5 +9,6 @@
     github-cli
     wiki-tui
     pandoc
+    opencode
   ];
 }

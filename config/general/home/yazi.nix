@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+
   programs.yazi = {
     enable = true;
     enableBashIntegration = true;
@@ -11,8 +12,11 @@
       git = git;
       chmod = chmod;
       diff = diff;
-      system-clipboard = ./yazi_plugins/system-clipboard.yazi;
+    } // {
+      system-clipboard = ./yazi_plugins/system-clipboard;
+      folder-rules = ./yazi_plugins/folder-rules;
     };
+
 
     settings = {
       mgr = {

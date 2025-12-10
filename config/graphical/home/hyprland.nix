@@ -51,6 +51,7 @@ in
             exec-once = killall -q swaync;sleep .5 && swaync
             exec-once = nm-applet --indicator
             exec-once = lxqt-policykit-agent
+            exec-once = swww-daemon --format argb &
             exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/${wallpaper}
             exec-once = albert
             monitor=,preferred,auto,1
@@ -88,8 +89,7 @@ in
             windowrulev2 = opacity 0.9 0.7, class:^(Brave)$
             windowrulev2 = opacity 0.9 0.7, class:^(thunar)$
             gestures {
-              workspace_swipe = true
-              workspace_swipe_fingers = 3
+              gesture = 3, horizontal, workspace
             }
             misc {
               initial_workspace_tracking = 0
@@ -135,6 +135,7 @@ in
 
             bind = ,Print,exec,screenshootin
             bind = ${modifier},Tab,exec,QT_QPA_PLATFORM=xcb albert toggle
+            bind = ${modifier},Z,exec,zotpicknixnu
 
             bind = ${modifier},Return,exec,${variables.terminal}
             bind = ${modifier}SHIFT,Return,exec,rofi-launcher

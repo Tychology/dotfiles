@@ -13,7 +13,12 @@
     settings = {
       #theme = "base16_transparent";
       editor = {
-        auto-save = true;
+        auto-save = {
+          after-delay = {
+            enable = true;
+            timeout = 1000;
+          };
+        };
         bufferline = "multiple";
         cursor-shape = {
           normal = "block";
@@ -25,12 +30,12 @@
       };
       keys = {
         insert = {
-          "esc" = ["normal_mode" ":w"];
+          # "esc" = ["normal_mode" ":w"];
           "A-+" = [":append-output echo -n '|>'"];
           "A-minus" = [":append-output echo -n '->'"];
         };
         select = {
-          "esc" = ["collapse_selection" "normal_mode" ":w"];
+          # "esc" = ["collapse_selection" "normal_mode" ":w"];
         };
         normal = {
           e = "expand_selection";
@@ -42,7 +47,8 @@
           q = ":q";
           "C-q" = "replay_macro";
           "," = ["goto_line_end" ":append-output echo -n ';'"];
-          esc = ["collapse_selection" "keep_primary_selection" ":w"];
+          ";" = ["goto_line_end" ":append-output echo -n ','"];
+          # esc = ["collapse_selection" "keep_primary_selection" ":w"];
           "A-+" = [":append-output echo -n '|>'"];
           "A-minus" = [":append-output echo -n '->'"];
           "C-y" = [
@@ -87,6 +93,22 @@
         };
       };
       nil = {command = "nil";};
+
+      texlab = {
+        command = "texlab";
+        config.texlab = {
+          build = {
+            onSave = true;
+            executable = "latexmk";
+            args = ["-pdf" "-interaction=nonstopmode" "-synctex=1" "%f"];
+            forwardSearchAfter = true;
+          };
+          forwardSearch = {
+            executable = "okular";
+            args = ["--unique" "file:%p#src:%l%f"];
+          };
+        };
+      };
     };
     languages.language = [
       {
@@ -124,6 +146,24 @@
           tab-width = 4;
           unit = "\t";
         };
+      }
+      {
+        name = "json";
+        auto-format = true;
+        formatter = {command = "jsonfmt";};
+        indent = {
+          tab-width = 4;
+          unit = "\t";
+        };
+      }
+      {
+        name = "latex";
+        # auto-format = true;
+        formatter = {
+          command = "latexindent";
+          args = ["%{buffer_name}"];
+        };
+        language-servers = ["texlab"];
       }
     ];
     themes = {

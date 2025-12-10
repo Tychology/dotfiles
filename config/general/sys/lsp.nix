@@ -7,5 +7,8 @@
     marksman
     lua-language-server
     jdt-language-server
+    jsonfmt
+    python313Packages.python-lsp-server
+    texlab
   ];
 }
