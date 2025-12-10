@@ -40,10 +40,11 @@ in {
     nmap
 
     python3
+    uv
+    nixpkgs-pytools   
      
     lshw
     pkg-config
     libvirt
-    mtr
   ];
 }
