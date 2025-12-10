@@ -12,7 +12,7 @@
     obsidian
     xournalpp
     vesktop
-    discord-canary
+    # discord-canary
     musescore
     obs-studio
     qdirstat
@@ -23,6 +23,8 @@
     arduino-ide
     inkscape
     krita
+    blender
+    godot
     ausweisapp
     zoom-us
     cutter
@@ -41,8 +43,8 @@
     heimdall
 
     # jetbrains.idea-ultimate
-    jetbrains.rust-rover
-    jetbrains.pycharm-professional
-    jetbrains-toolbox
+    # jetbrains.rust-rover
+    # jetbrains.pycharm-professional
+    # jetbrains-toolbox
   ];
 }
