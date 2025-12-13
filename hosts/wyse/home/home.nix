@@ -1,6 +1,7 @@
 {
   username,
   flakeDir,
+  lib,
   ...
 }: {
   # Home Manager Settings
@@ -17,4 +18,7 @@
       "/config/general/home"
       "/scripts"
     ]);
+
+    home.activation.dconfSettings = lib.mkForce "";
+
 }

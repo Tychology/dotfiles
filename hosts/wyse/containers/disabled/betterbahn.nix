@@ -3,7 +3,7 @@
   id = 12;
   idStr = toString id;
   ip = "192.168.178.${idStr}";
-  webPort = 8012;
+  webPort = 8000 + id;
   webPortStr = toString webPort;
 in {
   virtualisation.oci-containers.containers."${name}" = {
@@ -46,6 +46,7 @@ in {
     isNormalUser = true;
     createHome = true;
     group = name;
+    linger = false;
     subUidRanges = [
       {
         startUid = id * 100000 + 1;

@@ -5,13 +5,29 @@
 }: {
   nixpkgs.config.kodi.enableAdvancedLauncher = true;
   environment.systemPackages = with pkgs; [
-    (kodi-wayland.withPackages (kodiPkgs: with kodiPkgs; [youtube inputstream-adaptive inputstream-ffmpegdirect]))
+    # (kodi-wayland.withPackages (kodiPkgs: with kodiPkgs; [youtube inputstream-adaptive inputstream-ffmpegdirect]))
+    (kodi.withPackages (kodiPkgs: with kodiPkgs; [youtube inputstream-adaptive inputstream-ffmpegdirect]))
+
     kodiPackages.inputstream-adaptive
     kodiPackages.youtube
     cage
     sof-firmware
     tcpdump
+    xorg.xinit
   ];
+  services.seatd.enable = true;
+  services.xserver = {
+    enable = true;
+    displayManager.startx.enable = true;
+    desktopManager.kodi.enable = true;
+    resolutions = [
+      {
+        x = 1920;
+        y = 1080;
+      }
+    ];
+  };
+
   # Define the user to run Kodi
   users.extraUsers.kodi = {
     isNormalUser = true;
@@ -71,7 +87,8 @@
           }
           if ($clean | str contains $trigger_message) {
              print $"Trigger message received from UDP! Starting kodi...";
-             cage kodi-standalone
+             # cage kodi-standalone
+             startx kodi-standalone
            } else {
              print $"Received: ($clean)"
            }

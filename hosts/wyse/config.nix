@@ -16,7 +16,7 @@
     ]);
 
   # Extra Module Options
-  drivers.intel.enable = true;
+  drivers.intel.enable = false;
   vm.guest-services.enable = false;
   local.hardware-clock.enable = false;
 

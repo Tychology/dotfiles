@@ -38,6 +38,7 @@ in {
     openfortivpn
     alsa-utils
     nmap
+    shadow
 
     python3
     uv
