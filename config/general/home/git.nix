@@ -5,7 +5,7 @@ in {
     enable = true;
     settings = {
       user.name = "${variables.gitUsername}";
-      user.mail = "${variables.gitEmail}";
+      user.email = "${variables.gitEmail}";
       init.defaultBranch = "main";
       credential.helper = "store --file ~/.git_credentials";
     };
