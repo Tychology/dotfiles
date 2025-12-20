@@ -4,7 +4,8 @@
   ...
 }: {
   networking = {
-    networkmanager.enable = true;
+    networkmanager.enable = false;
+    useNetworkd = true;
     nameservers = ["192.168.178.1"];
     hostName = host;
     timeServers = options.networking.timeServers.default ++ ["pool.ntp.org"];
@@ -15,7 +16,10 @@
       enable = true;
       externalInterface = "enp1s0";
     };
-    defaultGateway = "192.168.178.1";
+    defaultGateway = {
+      interface = "enp1s0";
+      address = "192.168.178.1";
+    };
     interfaces = {
       enp1s0 = {
         ipv4.addresses = [
