@@ -38,6 +38,9 @@ in {
     openfortivpn
     alsa-utils
     nmap
+    zip
+    ouch
+    html-tidy
 
     python3
     uv
