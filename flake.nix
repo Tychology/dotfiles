@@ -112,17 +112,12 @@
                   "nix-command"
                   "flakes"
                 ];
-<<<<<<< HEAD
-                substituters = ["https://cache.nixos.org/" "https://devenv.cachix.org"];
-                trusted-public-keys = ["cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="];
-=======
                 trusted-substituters = ["https://cache.nixos.org/" "https://devenv.cachix.org" "https://cachix.cachix.org"];
                 trusted-public-keys = [
                   "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
                   "devenv.cachix.org-1:psrHoP9TvUKh6bV3+T5SVjHlT/RHb+NxlIye3E7itnk="
                   "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
                 ];
->>>>>>> e0d1c7297178afe97c809407e7348b21f51739ec
               };
 
               stylix.base16Scheme = builtins.fromJSON ''{"base00":"011d45","base01":"184684","base02":"805aa3","base03":"8fa0b0","base04":"c2b6ba","base05":"ffc5a7","base06":"f3d9c2","base07":"f7cfcd","base08":"b57cb1","base09":"4698d0","base0A":"7995a1","base0B":"8c918d","base0C":"9788c1","base0D":"9f8a9d","base0E":"c57e84","base0F":"dd6b9e"}'';
