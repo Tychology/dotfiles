@@ -3,6 +3,6 @@
     enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
-    enableNushellIntegration = false;
+    enableNushellIntegration = true;
   };
 }
