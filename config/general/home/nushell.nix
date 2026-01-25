@@ -34,6 +34,10 @@
       }
     '';
 
+    environmentVariables = {
+      EDITOR = "hx";
+};
+
     # extraConfig = lib.mkAfter ''
     #   $env.config = ($env.config? | default {})
     #       $env.config.hooks = ($env.config.hooks? | default {})
