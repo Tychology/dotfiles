@@ -42,6 +42,7 @@ in {
     ouch
     html-tidy
     shadow
+    agenix-cli
 
     python3
     uv

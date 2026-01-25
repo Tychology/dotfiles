@@ -1,0 +1,7 @@
+[identities]
+wyse = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC19gIoMwTKmBL9LS7/AeyUeNeqTMNkikFV2JrrhYa6e"
+
+
+[[paths]]
+glob = "hosts/wyse/secrets/*"
+identities = [ "wyse" ]
