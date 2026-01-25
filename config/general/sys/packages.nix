@@ -38,13 +38,10 @@ in {
     openfortivpn
     alsa-utils
     nmap
-<<<<<<< HEAD
     zip
     ouch
     html-tidy
-=======
     shadow
->>>>>>> e0d1c7297178afe97c809407e7348b21f51739ec
 
     python3
     uv
