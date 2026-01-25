@@ -135,7 +135,7 @@ in
 
             bind = ,Print,exec,screenshootin
             bind = ${modifier},Tab,exec,QT_QPA_PLATFORM=xcb albert toggle
-            bind = ${modifier},Z,exec,zotpicknixnu
+            bind = ${modifier},Z,exec,zed
 
             bind = ${modifier},Return,exec,${variables.terminal}
             bind = ${modifier}SHIFT,Return,exec,rofi-launcher
@@ -145,7 +145,7 @@ in
             bind = ${modifier},W,exec,${variables.browser}
             bind = ${modifier},E,exec,emopicker9000
             bind = ${modifier},S,exec,screenshootin
-            bind = ${modifier},D,exec,discord
+            bind = ${modifier},D,exec,vesktop
             bind = ${modifier},O,exec,obs
             bind = ${modifier},C,exec,hyprpicker -a
             bind = ${modifier},G,exec,gimp

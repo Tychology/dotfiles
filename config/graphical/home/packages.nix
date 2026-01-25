@@ -4,39 +4,50 @@
   ...
 }: {
   home.packages = with pkgs; [
+    #tuis
+    discordo
+    lynx
+    bluetui
+    impala
+    wiremix
+    
+    
     inputs.zen-browser.packages."${system}".default
-    wl-mirror
-    kdePackages.okular
-    bitwarden-desktop
-    github-desktop
-    obsidian
-    xournalpp
-    vesktop
-    # discord-canary
+    ladybird
+
+
+    # creation
     musescore
     obs-studio
-    qdirstat
-    qbittorrent-enhanced
-    vial
     onlyoffice-desktopeditors
     libreoffice
-    arduino-ide
     inkscape
     krita
     blender
     godot
+    freecad-wayland
+
+    
+    obsidian
+    wl-mirror
+    kdePackages.okular
+    bitwarden-desktop
+    github-desktop
+    xournalpp
+    vesktop
+    # discord-canary
+    qdirstat
+    qbittorrent-enhanced
+    vial
+    arduino-ide
     ausweisapp
     zoom-us
     cutter
     gource
     vscodium-fhs
     kdePackages.kdeconnect-kde
-    ladybird
-    # vieb
-    # nyxt
     thunderbird
     wireshark
-    freecad-wayland
     teams-for-linux
     zotero
     android-tools

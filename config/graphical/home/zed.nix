@@ -1,4 +1,4 @@
-{...}: {
+{pkgs,...}: {
 programs.zed-editor = {
   enable = true;
   extensions = [ "nix" "toml" "rust" "python" ];
@@ -7,4 +7,7 @@ programs.zed-editor = {
     vim_mode = true;
   };
 };
+home.packages = [
+  pkgs.carapace # for nushell extension
+];
 }

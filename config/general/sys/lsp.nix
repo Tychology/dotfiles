@@ -10,5 +10,6 @@
     jsonfmt
     python313Packages.python-lsp-server
     texlab
+    taplo
   ];
 }

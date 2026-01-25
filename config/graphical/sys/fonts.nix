@@ -6,6 +6,7 @@
       font-awesome
       # symbola
       material-icons
+      newcomputermodern
     ];
   };
 }

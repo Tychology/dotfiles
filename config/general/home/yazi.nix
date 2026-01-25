@@ -15,6 +15,7 @@
     } // {
       system-clipboard = ./yazi_plugins/system-clipboard;
       folder-rules = ./yazi_plugins/folder-rules;
+      # ouch-yazi = ./yazi_plugins/ouch.yazi;
     };
 
 

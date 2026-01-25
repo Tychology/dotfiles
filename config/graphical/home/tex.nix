@@ -21,6 +21,8 @@
         beamer
         lipsum
         tcolorbox
+        biblatex
+        biber
         ; # essential font metrics
     })
     (
