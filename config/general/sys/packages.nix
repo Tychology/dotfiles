@@ -43,7 +43,8 @@ in {
     html-tidy
     shadow
     agenix-cli
-
+    gtrash
+    
     python3
     uv
     nixpkgs-pytools   

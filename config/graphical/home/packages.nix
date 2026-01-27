@@ -14,6 +14,7 @@
     
     inputs.zen-browser.packages."${system}".default
     ladybird
+    ungoogled-chromium
 
 
     # creation

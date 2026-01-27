@@ -46,7 +46,9 @@
           #y = {y = ["extend_to_line_bounds" "yank" "normal_mode" "collapse_selection"];};
           #d = {d = ["extend_to_line_bounds" "yank" "delete_selection"];};
           #c = {c = ["extend_to_line_bounds" "yank" "delete_selection" "insert_mode"];};
+          "=" = {"=" = ":fmt";};
           # Z = {Z = ":wq";};
+          d = "delete_selection_noyank";
           q = ":q";
           "C-q" = "replay_macro";
           "," = ["goto_line_end" ":append-output echo -n ';'"];
