@@ -3,10 +3,12 @@
   config,
   ...
 }: let
-  ip = "192.168.178.11";
-  dnsPort = 5311;
+  ip_config = import ../ip_config.nix;
+  id = 1;
+  ip = ip_config.container_prefix ++ toString id;
+  dnsPort = 5300 + id;
   dnsPortStr = toString dnsPort;
-  webPort = 8011;
+  webPort = 8000 + id;
   webPortStr = toString webPort;
 in {
   boot.tmp.cleanOnBoot = true;
@@ -82,7 +84,7 @@ in {
         }
         chain postrouting {
           type nat hook postrouting priority srcnat; policy accept;
-          ip saddr 192.168.178.0/24 oifname "enp1s0" counter masquerade
+          ip saddr ${ip_config.subnet} oifname "enp1s0" counter masquerade
         }
 
       '';
@@ -96,13 +98,13 @@ in {
     group = "pihole";
     subUidRanges = [
       {
-        startUid = 100001;
+        startUid = 100000 * id + 1;
         count = 65534;
       }
     ];
     subGidRanges = [
       {
-        startGid = 100001;
+        startGid = 100000 * id + 1;
         count = 65534;
       }
     ];

@@ -2,11 +2,11 @@
   host,
   options,
   ...
-}: {
+}: let ip_config = import ./ip_config.nix{
   networking = {
     networkmanager.enable = false;
     useNetworkd = true;
-    nameservers = ["192.168.178.1"];
+    nameservers = [ip_config.dns];
     hostName = host;
     timeServers = options.networking.timeServers.default ++ ["pool.ntp.org"];
 
@@ -18,14 +18,14 @@
     };
     defaultGateway = {
       interface = "enp1s0";
-      address = "192.168.178.1";
+      address = ip_config.gateway;
     };
     interfaces = {
       enp1s0 = {
         ipv4.addresses = [
           {
-            address = "192.168.178.10";
-            prefixLength = 24;
+            address = ip_config.container_prefix ++ "0";
+            prefixLength = 16;
           }
         ];
       };
