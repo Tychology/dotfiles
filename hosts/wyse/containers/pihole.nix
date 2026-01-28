@@ -1,11 +1,9 @@
 {
-  username,
-  config,
   ...
 }: let
   ip_config = import ../ip_config.nix;
   id = 1;
-  ip = ip_config.container_prefix ++ toString id;
+  ip = ip_config.dns;
   dnsPort = 5300 + id;
   dnsPortStr = toString dnsPort;
   webPort = 8000 + id;
@@ -35,10 +33,8 @@ in {
       tz = "Europe/Berlin";
       interface = "enp1s0";
       ftl = {
-        # assuming that the host has this (fixed) IP and should resolve "pi.hole" to this address
-        # check the option description & the FTLDNS documentation for more information
-        FTLCONF_DELAY_STARTUP = "5";
         LOCAL_IPV4 = ip;
+        DNSMASQ_LISTENING="all";
       };
       web = {
         virtualHost = "pi.hole";
@@ -56,7 +52,7 @@ in {
     interfaces.enp1s0.ipv4.addresses = [
       {
         address = ip;
-        prefixLength = 24;
+        prefixLength = ip_config.prefix_length;
       }
     ];
 

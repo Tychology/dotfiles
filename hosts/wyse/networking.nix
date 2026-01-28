@@ -2,7 +2,7 @@
   host,
   options,
   ...
-}: let ip_config = import ./ip_config.nix{
+}: let ip_config = import ./ip_config.nix; in {
   networking = {
     networkmanager.enable = false;
     useNetworkd = true;
@@ -24,8 +24,8 @@
       enp1s0 = {
         ipv4.addresses = [
           {
-            address = ip_config.container_prefix ++ "0";
-            prefixLength = 16;
+            address = ip_config.ip;
+            prefixLength = ip_config.prefix_length;
           }
         ];
       };
