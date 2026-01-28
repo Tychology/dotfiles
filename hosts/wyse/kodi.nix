@@ -13,20 +13,20 @@
     cage
     sof-firmware
     tcpdump
-    xorg.xinit
+    # xorg.xinit
   ];
   services.seatd.enable = true;
-  services.xserver = {
-    enable = true;
-    displayManager.startx.enable = true;
-    desktopManager.kodi.enable = true;
-    resolutions = [
-      {
-        x = 1920;
-        y = 1080;
-      }
-    ];
-  };
+  # services.xserver = {
+  #   enable = true;
+  #   displayManager.startx.enable = true;
+  #   desktopManager.kodi.enable = true;
+  #   resolutions = [
+  #     {
+  #       x = 1920;
+  #       y = 1080;
+  #     }
+  #   ];
+  # };
 
   # Define the user to run Kodi
   users.extraUsers.kodi = {
@@ -65,40 +65,52 @@
     # Make sure sudo and tcpdump are available in PATH
     path = with pkgs; [
       bash
+      socat
       netcat
+      kodi
       cage
-      kodi-wayland
+      # xorg.xinit
+
       nushell
     ];
 
     serviceConfig = let
       execStart = pkgs.writers.writeNu "xbmcstarter-ExecStart" ''
-        let port = 5610;
-        let trigger_message = "YatseStart-Xbmc";
+        let port = 5610
+        let trigger_message = "YatseStart-Xbmc"
 
-        $env.XKB_DEFAULT_LAYOUT = "de";
+        print "xbmcstarter listening on UDP port 5610"
 
-        nc -luk $port | each { |msg|
-          let msg_type = ($msg | describe)
-          let clean = if $msg_type == "binary" {
-            $msg | decode utf-8 | str trim
-          } else {
-            $msg | str trim
+        # socat -u UDP6-RECVFROM:5610,fork STDOUT | each { |msg|
+          nc -6luk 5610 | each {|msg|
+          # Convert to UTF-8, drop invalid bytes
+           let msg_type = ($msg | describe)
+
+           let text = if $msg_type == "binary" {
+             $msg | decode utf-8 | str trim
+            } else {
+              $msg | str trim
+            }
+
+
+          # Ignore noise / binary packets
+            if ($text | str contains $trigger_message) {
+              print "Trigger received — starting Kodi"
+              cage kodi-standalone
+              # startx kodi-standalone
+            } else {
+              print $"Ignored packet: ($text)"
           }
-          if ($clean | str contains $trigger_message) {
-             print $"Trigger message received from UDP! Starting kodi...";
-             # cage kodi-standalone
-             startx kodi-standalone
-           } else {
-             print $"Received: ($clean)"
-           }
-         }
+        }
       '';
     in {
       # Environment = "XDG_RUNTIME_DIR=/run/user/$(id -u kodi)";
       Type = "simple";
-      ExecStart = "${execStart}";
+      ExecStart = "${pkgs.coreutils}/bin/stdbuf -oL -eL ${execStart}";
       Restart = "always";
+      StandardOutput = "journal";
+      StandardError = "journal";
+
       # User = "kodi";
       # Group = "kodi";
     };
