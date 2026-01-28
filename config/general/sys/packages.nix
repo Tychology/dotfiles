@@ -1,6 +1,9 @@
 {pkgs, ...}: let
 in {
   environment.systemPackages = with pkgs; [
+    lsof
+    netcat
+    socat
     man-pages
     uutils-coreutils-noprefix
     helix

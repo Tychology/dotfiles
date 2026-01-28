@@ -15,6 +15,7 @@
       gf = "git pull";
       gp = "git push";
       ga = "git add .";
+      zj = "zellij";
 
       ".." = "cd ..";
       "cd.." = "cd ..";
