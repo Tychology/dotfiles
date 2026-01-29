@@ -1,9 +1,10 @@
 {config, ...}: {
+  stylix.targets.zellij.colors.enable = true;
   programs.zellij = {
     enable = true;
     # enableZshIntegration = true;
     settings = {
-      theme = "base16";
+      # theme = "stylix";
     };
     themes = {
     };

@@ -72,8 +72,9 @@
     flakeDir = builtins.toString ./.;
     wallpaper = "cosmiccliffs.png";
     hosts = ["think" "desk" "wyse" "wsl"];
+
     pkgs-unstable = import nixpkgs-unstable {
-      system = system;
+      inherit system;
       config = {
         allowUnfree = true;
       };
@@ -105,7 +106,7 @@
               pkgs,
               ...
             }: {
-              nixpkgs.overlays = import ./overlays;
+              # nixpkgs.overlays = import ./overlays;
               nixpkgs.config.allowUnfree = true;
               nix.settings = {
                 experimental-features = [
@@ -131,6 +132,12 @@
                 stylixBase16 = config.stylix.base16Scheme;
               };
               home-manager.useGlobalPkgs = true;
+              # nixpkgs = {
+              #   config = {
+              #     allowUnfree = true;
+              #     allowUnfreePredicate = _: true;
+              #   };
+              # };
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
               home-manager.users.${username} = import ./hosts/${host}/home/home.nix;
