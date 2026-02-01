@@ -46,7 +46,6 @@
     cutter
     gource
     vscodium-fhs
-    kdePackages.kdeconnect-kde
     thunderbird
     wireshark
     teams-for-linux
