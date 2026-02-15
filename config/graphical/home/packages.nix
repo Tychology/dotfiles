@@ -28,7 +28,7 @@
     godot
     freecad-wayland
 
-    
+    pdftk
     obsidian
     wl-mirror
     kdePackages.okular
