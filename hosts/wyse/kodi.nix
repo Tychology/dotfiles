@@ -65,11 +65,9 @@
     # Make sure sudo and tcpdump are available in PATH
     path = with pkgs; [
       bash
-      socat
       netcat
       kodi
       cage
-      # xorg.xinit
 
       nushell
     ];
@@ -77,13 +75,11 @@
     serviceConfig = let
       execStart = pkgs.writers.writeNu "xbmcstarter-ExecStart" ''
         let port = 5610
-        let trigger_message = "YatseStart-Xbmc"
+        let trigger_message = "D'"
 
         print "xbmcstarter listening on UDP port 5610"
 
-        # socat -u UDP6-RECVFROM:5610,fork STDOUT | each { |msg|
           nc -6luk 5610 | each {|msg|
-          # Convert to UTF-8, drop invalid bytes
            let msg_type = ($msg | describe)
 
            let text = if $msg_type == "binary" {
@@ -93,11 +89,9 @@
             }
 
 
-          # Ignore noise / binary packets
             if ($text | str contains $trigger_message) {
               print "Trigger received — starting Kodi"
               cage kodi-standalone
-              # startx kodi-standalone
             } else {
               print $"Ignored packet: ($text)"
           }
