@@ -19,7 +19,7 @@
     };
 
     extraConfig = lib.mkAfter ''
-      if ($nu.is-interactive) {
+      if ($nu.is-interactive) and (is-terminal --stdout) {
         fastfetch
       }
     '';

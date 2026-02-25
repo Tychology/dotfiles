@@ -12,11 +12,12 @@
       #fi
     '';
     initExtra = ''
-      fastfetch
-      if [ -f $HOME/.bashrc-personal ]; then
-        source $HOME/.bashrc-personal
-      fi
+      if [[ $- == *i* ]]; then
+        if [ -f $HOME/.bashrc-personal ]; then
+          source $HOME/.bashrc-personal
+        fi
       eval "$(zoxide init bash)"
+      fi
     '';
     shellAliases = import ./aliases/aliases.nix {inherit host username;};
   };
