@@ -1,7 +1,8 @@
 {pkgs,...}: {
 programs.zed-editor = {
   enable = true;
-  extensions = [ "nix" "toml" "rust" "python" ];
+  package = pkgs.zed-editor-fhs;
+  extensions = [  ];
   userSettings = {
     hour_format = "hour24";
     vim_mode = true;
