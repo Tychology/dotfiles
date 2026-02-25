@@ -1,8 +1,8 @@
-{pkgs, ...}: {
+{pkgs-unstable, ...}: {
   # nixpkgs.config.packageOverrides = pkgs: {
   #   devenv = pkgs.devenv.overrideAttrs (oldAttrs: {
   #     doCheck = false;
   #   });
   # };
-  environment.systemPackages = [pkgs.devenv];
+  environment.systemPackages = [pkgs-unstable.devenv];
 }
