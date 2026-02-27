@@ -52,6 +52,7 @@
     zotero
     android-tools
     heimdall
+    wlsunset
 
     # jetbrains.idea-ultimate
     # jetbrains.rust-rover
