@@ -18,17 +18,16 @@ in
         {
           layer = "top";
           position = "top";
-          modules-center = ["hyprland/workspaces"];
+          modules-center = ["niri/workspaces"];
           modules-left = [
             "custom/startmenu"
-            "hyprland/window"
+            "niri/window"
             "pulseaudio"
             "cpu"
             "memory"
             "idle_inhibitor"
           ];
           modules-right = [
-            "custom/hyprbindings"
             "custom/notification"
             "custom/exit"
             "battery"
@@ -36,15 +35,15 @@ in
             "clock"
           ];
 
-          "hyprland/workspaces" = {
+          "niri/workspaces" = {
             format = "{name}";
             format-icons = {
               default = " ";
               active = " ";
               urgent = " ";
             };
-            on-scroll-up = "hyprctl dispatch workspace e+1";
-            on-scroll-down = "hyprctl dispatch workspace e-1";
+            # on-scroll-up = "hyprctl dispatch workspace e+1";
+            # on-scroll-down = "hyprctl dispatch workspace e-1";
           };
           "clock" = {
             format =
@@ -54,7 +53,7 @@ in
             tooltip = true;
             tooltip-format = "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>";
           };
-          "hyprland/window" = {
+          "niri/window" = {
             max-length = 22;
             separate-outputs = false;
             rewrite = {
@@ -121,13 +120,7 @@ in
           "custom/startmenu" = {
             tooltip = false;
             format = "";
-            # exec = "rofi -show drun";
-            on-click = "sleep 0.1 && rofi-launcher";
-          };
-          "custom/hyprbindings" = {
-            tooltip = false;
-            format = "󱕴";
-            on-click = "sleep 0.1 && list-hypr-bindings";
+            on-click = "sleep 0.1 && albert toggle";
           };
           "idle_inhibitor" = {
             format = "{icon}";

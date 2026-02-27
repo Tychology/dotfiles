@@ -40,6 +40,6 @@ in {
     mpv
     pavucontrol
     wine
-  ];
-  # ++ [pkgs-unstable.albert];
+  ]
+  ++ [pkgs-unstable.xwayland-satellite];
 }

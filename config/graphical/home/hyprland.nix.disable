@@ -19,12 +19,12 @@ in
     # };
 
     wayland.windowManager.hyprland = {
-      enable = true;
+      enable = false;
       xwayland.enable = true;
       systemd.enable = true;
-      # plugins = [
-      #   hyprplugins.hyprtrails
-      # ];
+      plugins = with pkgs.hyprlandPlugins; [
+        hyprscrolling
+      ];
       settings.cursor.no_hardware_cursors = true;
       extraConfig = let
         modifier = "SUPER";

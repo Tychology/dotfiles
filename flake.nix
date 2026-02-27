@@ -10,6 +10,10 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     stylix = {
       url = "github:nix-community/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -83,6 +87,7 @@
     nixosConfigurations = nixpkgs.lib.genAttrs hosts (
       host: let
         hostDir = flakeDir + "/hosts/" + host;
+        overlays = import ./overlays;
       in
         nixpkgs.lib.nixosSystem {
           inherit system;
@@ -93,6 +98,8 @@
             inputs.stylix.nixosModules.stylix
             inputs.nix-flatpak.nixosModules.nix-flatpak
             inputs.nixos-wsl.nixosModules.wsl
+
+            inputs.niri.nixosModules.niri
 
             inputs.linger.nixosModules.${system}.default
             inputs.pihole.nixosModules.${system}.default
@@ -106,18 +113,19 @@
               pkgs,
               ...
             }: {
-              # nixpkgs.overlays = import ./overlays;
+              nixpkgs.overlays = overlays; # ++ [ inputs.niri.overlays.niri ];
               nixpkgs.config.allowUnfree = true;
               nix.settings = {
                 experimental-features = [
                   "nix-command"
                   "flakes"
                 ];
-                trusted-substituters = ["https://cache.nixos.org/" "https://devenv.cachix.org" "https://cachix.cachix.org"];
+                trusted-substituters = ["https://cache.nixos.org/" "https://devenv.cachix.org" "https://cachix.cachix.org" "https://niri.cachix.org"];
                 trusted-public-keys = [
                   "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
                   "devenv.cachix.org-1:psrHoP9TvUKh6bV3+T5SVjHlT/RHb+NxlIye3E7itnk="
                   "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
+                  "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
                 ];
               };
 

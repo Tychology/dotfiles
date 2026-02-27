@@ -1,6 +1,7 @@
 {
   lib,
   username,
+  wallpaper,
   ...
 }: {
   programs.hyprlock = {
@@ -14,7 +15,7 @@
       };
       background = lib.mkForce [
         {
-          path = lib.mkDefault "/home/${username}/Pictures/Wallpapers/cosmiccliffs.jpg";
+          path = lib.mkDefault "/home/${username}/Pictures/Wallpapers/${wallpaper}";
           blur_passes = 3;
           blur_size = 8;
         }
