@@ -71,6 +71,11 @@
       # url = "/home/jonas/repos/peerix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -84,7 +89,7 @@
     username = "jonas";
     flakeDir = builtins.toString ./.;
     wallpaper = "cosmiccliffs.png";
-    hosts = ["think" "desk" "wyse" "wsl"];
+    hosts = ["think" "desk" "wyse" "wsl" "happy"];
 
     pkgs-unstable = import nixpkgs-unstable {
       inherit system;
@@ -116,6 +121,7 @@
             inputs.sopswarden.nixosModules.default
             inputs.agenix.nixosModules.default
             inputs.peerix.nixosModules.peerix
+            inputs.disko.nixosModules.disko
 
             ./hosts/${host}/config.nix
             ({

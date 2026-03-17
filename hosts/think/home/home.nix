@@ -14,6 +14,7 @@
       ./default.nix
     ]
     ++ (map (p: import (flakeDir + p)) [
+      "/config/minimal/home"
       "/config/general/home"
       "/config/graphical/home"
       "/scripts"
