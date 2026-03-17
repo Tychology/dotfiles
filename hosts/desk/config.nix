@@ -4,6 +4,7 @@
       (import ./default.nix)
     ]
     ++ (map (p: (flakeDir + p)) [
+      "/config/minimal/sys"
       "/config/general/sys"
       "/config/graphical/sys"
       "/modules/intel-drivers.nix"

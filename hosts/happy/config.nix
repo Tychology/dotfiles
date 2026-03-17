@@ -8,25 +8,13 @@
       (import ./default.nix)
     ]
     ++ (map (p: (flakeDir + p)) [
-      "/config/general/sys"
       "/config/minimal/sys"
-      "/modules/intel-drivers.nix"
-      "/modules/vm-guest-services.nix"
-      "/modules/local-hardware-clock.nix"
     ]);
 
-  # Extra Module Options
-  drivers.intel.enable = true;
-  vm.guest-services.enable = false;
-  local.hardware-clock.enable = false;
 
   # Set your time zone.
-  # time.timeZone = lib.mkForce "Europe/Berlin";
+  time.timeZone = lib.mkForce "Europe/Berlin";
 
-  wsl = {
-    enable = true;
-    defaultUser = "jonas";
-  };
   services = {
     smartd.enable = lib.mkForce false;
     keyd.enable = lib.mkForce false;
@@ -40,6 +28,13 @@
       enableZshIntegration = true;
     };
   };
+
+
+  services.openssh.enable = true;
+
+  users.users.root.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJstTlmiUvM9qZ0/WIW4sNb76dN+QWuubcVKIaw2imxM"
+  ];
 
   nix.extraOptions = ''
     trusted-users = root jonas
@@ -59,5 +54,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 }

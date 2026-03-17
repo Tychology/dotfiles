@@ -4,6 +4,7 @@
       (import ./default.nix)
     ]
     ++ (map (p: (flakeDir + p)) [
+      "/config/minimal/sys"
       "/config/general/sys"
       "/config/graphical/sys"
       "/modules/intel-drivers.nix"
@@ -15,6 +16,8 @@
   drivers.intel.enable = false;
   # vm.guest-services.enable = false;
   local.hardware-clock.enable = false;
+
+  hardware.opentabletdriver.enable = true;
 
   # Set your time zone.
   # time.timeZone = lib.mkForce "Europe/Berlin";
