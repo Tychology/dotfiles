@@ -110,7 +110,7 @@ in
                 ""
               ];
             };
-            on-click = "sleep 0.1 && pavucontrol";
+            on-click = "sleep 0.1 && easyeffects";
           };
           "custom/exit" = {
             tooltip = false;

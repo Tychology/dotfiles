@@ -32,6 +32,15 @@
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    affinity-nix = {
+      url = "github:mrshmllow/affinity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Required for making sure that Pi-hole continues running if the executing user has no active session.
     linger = {
@@ -98,6 +107,7 @@
             inputs.stylix.nixosModules.stylix
             inputs.nix-flatpak.nixosModules.nix-flatpak
             inputs.nixos-wsl.nixosModules.wsl
+            inputs.nix-index-database.nixosModules.nix-index
 
             inputs.niri.nixosModules.niri
 
@@ -120,12 +130,13 @@
                   "nix-command"
                   "flakes"
                 ];
-                trusted-substituters = ["https://cache.nixos.org/" "https://devenv.cachix.org" "https://cachix.cachix.org" "https://niri.cachix.org"];
+                trusted-substituters = ["https://cache.nixos.org/" "https://devenv.cachix.org" "https://cachix.cachix.org" "https://niri.cachix.org" "https://cache.garnix.io"];
                 trusted-public-keys = [
                   "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
                   "devenv.cachix.org-1:psrHoP9TvUKh6bV3+T5SVjHlT/RHb+NxlIye3E7itnk="
                   "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
                   "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+                  "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
                 ];
               };
 

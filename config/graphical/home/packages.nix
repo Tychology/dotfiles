@@ -12,7 +12,7 @@
     wiremix
     
     
-    inputs.zen-browser.packages."${system}".default
+    inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
     ladybird
     ungoogled-chromium
 
@@ -27,6 +27,7 @@
     blender
     godot
     freecad-wayland
+    # inputs.affinity-nix.packages."${pkgs.stdenv.hostPlatform.system}".v3
 
     pdftk
     obsidian

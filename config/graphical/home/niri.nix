@@ -46,6 +46,17 @@
               accel-profile "flat"
           }
 
+        tablet {
+            map-to-output "eDP-1"
+            // left-handed
+            // calibration-matrix 1.0 0.0 0.0 0.0 1.0 0.0
+        }
+
+        touch {
+            map-to-output "eDP-1"
+            // calibration-matrix 1.0 0.0 0.0 0.0 1.0 0.0
+        }
+
           keyboard {
               xkb {
                   layout "de"
@@ -110,7 +121,7 @@
       spawn-sh-at-startup "sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/${wallpaper}"
 
       binds {
-          Print { spawn "screenshooting"; }
+          Print { spawn "screenshootin"; }
           Alt+Space { spawn "albert" "toggle"; }
           Mod+Return { spawn "kitty"; }
           Mod+Z { spawn "zeditor"; }
@@ -119,6 +130,7 @@
           Mod+O { spawn "obsidian"; }
           Mod+T { spawn "thunar"; }
           Mod+M { spawn "thunderbird"; }
+          Mod+X { spawn "xournalpp"; }
           Mod+Space { focus-workspace "⭗"; }
 
           // Keys consist of modifiers separated by + signs, followed by an XKB key name

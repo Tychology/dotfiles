@@ -20,6 +20,7 @@ in {
     ghostty
 
     libnotify
+    libinput
     v4l-utils
     wl-clipboard
 
@@ -38,8 +39,10 @@ in {
     swaynotificationcenter
     imv
     mpv
-    pavucontrol
+    # pavucontrol
+    easyeffects
     wine
+    evtest
   ]
   ++ [pkgs-unstable.xwayland-satellite];
 }
