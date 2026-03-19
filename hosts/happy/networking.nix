@@ -12,7 +12,7 @@
     firewall.enable = true;
     interfaces = {
       ens3 = {
-        ipv4 = [
+        ipv4.addresses = [
           {
             address = "77.90.40.30";
             prefixLength = 24;
