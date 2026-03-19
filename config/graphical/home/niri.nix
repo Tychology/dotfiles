@@ -123,7 +123,7 @@
       binds {
           Print { spawn "screenshootin"; }
           Alt+Space { spawn "albert" "toggle"; }
-          Mod+Return { spawn "kitty"; }
+          Mod+Return { spawn "ghostty"; }
           Mod+Z { spawn "zeditor"; }
           Mod+W { spawn "zen-beta"; }
           Mod+D { spawn "vesktop"; }
