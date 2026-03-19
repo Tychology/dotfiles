@@ -1,6 +1,7 @@
 {
   flakeDir,
   lib,
+  username,
   ...
 }: {
   imports =
@@ -33,7 +34,7 @@
 
   services.openssh.enable = true;
 
-  users.users.root.openssh.authorizedKeys.keys = [
+  users.users."${username}".openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJstTlmiUvM9qZ0/WIW4sNb76dN+QWuubcVKIaw2imxM"
   ];
 
