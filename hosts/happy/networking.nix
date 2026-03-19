@@ -8,7 +8,7 @@
   networking.timeServers = options.networking.timeServers.default ++ ["pool.ntp.org"];
   networking = {
     defaultGateway.address = "77.90.40.1";
-    firewall.enable = false;
+    firewall.enable = true;
     interfaces = {
       ens3 = {
         ipv4 = [

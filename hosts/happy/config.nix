@@ -12,7 +12,6 @@
       "/config/minimal/sys"
     ]);
 
-
   # Set your time zone.
   time.timeZone = lib.mkForce "Europe/Berlin";
 
