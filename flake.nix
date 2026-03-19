@@ -85,6 +85,7 @@
     username = "jonas";
     flakeDir = builtins.toString ./.;
     wallpaper = "cosmiccliffs.png";
+    stylixBase16 = builtins.fromJSON ''{"base00":"000f24","base01":"001026","base02":"805aa3","base03":"8fa0b0","base04":"c2b6ba","base05":"ffc5a7","base06":"f3d9c2","base07":"f7cfcd","base08":"b57cb1","base09":"4698d0","base0A":"7995a1","base0B":"8c918d","base0C":"9788c1","base0D":"9f8a9d","base0E":"c57e84","base0F":"dd6b9e"}'';
     hosts = ["think" "desk" "wyse" "wsl" "happy"];
 
     pkgs-unstable = import nixpkgs-unstable {
@@ -102,7 +103,7 @@
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit system inputs username host flakeDir hostDir wallpaper hosts pkgs-unstable;
+            inherit system inputs username host flakeDir hostDir stylixBase16 hosts pkgs-unstable;
           };
           modules =
             (
@@ -145,15 +146,15 @@
                     "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
                     "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
                   ];
+
                 };
               })
 
               home-manager.nixosModules.home-manager
               ({config, ...}: {
                 home-manager.extraSpecialArgs = {
-                  inherit username inputs host flakeDir hostDir wallpaper pkgs-unstable;
+                  inherit username inputs host flakeDir hostDir wallpaper stylixBase16 pkgs-unstable;
                   variables = import ./hosts/${host}/home/variables.nix;
-                  stylixBase16 = config.stylix.base16Scheme;
                 };
                 home-manager.useGlobalPkgs = true;
                 # nixpkgs = {

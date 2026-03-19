@@ -7,7 +7,6 @@
     };
     libinput.enable = true;
     fstrim.enable = true;
-    openssh.enable = true;
     gnome.gnome-keyring.enable = true;
     ipp-usb.enable = true;
   };

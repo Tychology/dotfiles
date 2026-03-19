@@ -1,0 +1,44 @@
+{pkgs, ...}: let
+in {
+  environment.systemPackages = with pkgs; [
+    lsof
+    netcat
+    socat
+    man-pages
+    uutils-coreutils-noprefix
+    helix
+    fd
+    ripgrep
+    fzf
+    eza
+    bat
+    nushell
+    yazi
+    gcc
+    xh
+    dua
+    duf
+    direnv
+    kmon
+    bandwhich
+    vim
+    wget
+    curl
+    killall
+    git
+    htop
+    btop
+    dnslookup
+    dig
+    openfortivpn
+    nmap
+    zip
+    ouch
+    shadow
+    agenix-cli
+    gtrash         
+    lshw
+    bitwarden-cli
+    github-cli
+  ];
+}
