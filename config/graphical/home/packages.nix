@@ -5,7 +5,7 @@
 }: {
   home.packages = with pkgs; [
     #tuis
-    discordo
+    # discordo
     lynx
     bluetui
     impala
@@ -13,7 +13,7 @@
     
     
     inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
-    ladybird
+    # ladybird
     ungoogled-chromium
 
 
@@ -29,6 +29,8 @@
     freecad-wayland
     # inputs.affinity-nix.packages."${pkgs.stdenv.hostPlatform.system}".v3
 
+    sigrok-firmware-fx2lafw
+    pulseview
     pdftk
     obsidian
     wl-mirror
@@ -54,6 +56,10 @@
     android-tools
     heimdall
     wlsunset
+    bottles
+
+    prismlauncher
+    lutris
 
     # jetbrains.idea-ultimate
     # jetbrains.rust-rover

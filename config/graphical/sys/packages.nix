@@ -33,7 +33,7 @@ in {
     networkmanagerapplet
     peazip
     yad
-    swww
+    awww
     grim
     slurp
     swaynotificationcenter
@@ -43,6 +43,11 @@ in {
     easyeffects
     wine
     evtest
+
+
+    libglvnd
+    glfw
+    mesa
   ]
   ++ [pkgs-unstable.xwayland-satellite];
 }

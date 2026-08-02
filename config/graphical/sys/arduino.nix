@@ -6,7 +6,7 @@
   environment.systemPackages = [
     pkgs.arduino-cli
     pkgs.arduino-ide
-    pkgs.xorg.libxkbfile
+    pkgs.libxkbfile
   ];
 
   users.users.${username}.extraGroups = ["dialout"];

@@ -116,9 +116,9 @@
       spawn-at-startup "albert"
       spawn-at-startup "swaync"
       spawn-at-startup "nm-applet" "--indicator"
-      spawn-at-startup "swww-daemon" "--format" "argb"
+      spawn-at-startup "awww-daemon" "--format" "argb"
       spawn-at-startup "niri" "msg" "focus-workspace" "1"
-      spawn-sh-at-startup "sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/${wallpaper}"
+      spawn-sh-at-startup "sleep 1.5 && awww img /home/${username}/Pictures/Wallpapers/${wallpaper}"
 
       binds {
           Print { spawn "screenshootin"; }
@@ -132,7 +132,7 @@
           Mod+M { spawn "thunderbird"; }
           Mod+X { spawn "xournalpp"; }
           Mod+Space { focus-workspace "⭗"; }
-
+          
           // Keys consist of modifiers separated by + signs, followed by an XKB key name
           // in the end. To find an XKB name for a particular key, you may use a program
           // like wev.
