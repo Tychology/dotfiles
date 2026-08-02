@@ -18,6 +18,7 @@
     enableZshIntegration = true;
     enableFishIntegration = true;
     enableNushellIntegration = true;
+    shellWrapperName = "y";
     plugins =
       lib.genAttrs [
         "sudo"
@@ -41,6 +42,7 @@
         pandoc = ./yazi_plugins/pandoc;
         open-with-cmd = ./yazi_plugins/open-with-cmd;
         bunny = ./yazi_plugins/bunny;
+        media-info = ./yazi_plugins/mediainfo;
       };
 
     initLua = ''

@@ -3,7 +3,6 @@
   username,
   ...
 }: {
-  y = "yy";
   x = "hx";
   cd = "z";
   g = "gitui";
