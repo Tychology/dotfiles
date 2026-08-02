@@ -9,5 +9,6 @@
     fstrim.enable = true;
     gnome.gnome-keyring.enable = true;
     ipp-usb.enable = true;
+    upower.enable = true;
   };
 }

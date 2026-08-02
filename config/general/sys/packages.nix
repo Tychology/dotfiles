@@ -12,9 +12,11 @@ in {
     html-tidy
     agenix-cli
     
+    gcc
     python3
     uv
     nixpkgs-pytools   
+    julia
      
     pkg-config
     libvirt

@@ -16,6 +16,7 @@ in {
         "libvirtd"
         "scanner"
         "lp"
+        "kvm"
       ];
       shell = pkgs.${shell};
       ignoreShellProgramCheck = true;

@@ -7,7 +7,7 @@
     # Kernel
     kernelPackages = pkgs.linuxPackages_6_12;
     # This is for OBS Virtual Cam Support
-    kernelModules = ["v4l2loopback" "wacom" "hid_wacom"];
+    kernelModules = ["v4l2loopback" "wacom" "hid_wacom" "kvm-intel"];
     # blacklistedKernelModules = ["hid_generic"];
     extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
     extraModprobeConfig = ''

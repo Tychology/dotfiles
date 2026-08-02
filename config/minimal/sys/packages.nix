@@ -40,5 +40,6 @@ in {
     lshw
     bitwarden-cli
     github-cli
+    clipboard-jh
   ];
 }
